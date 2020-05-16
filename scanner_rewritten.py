@@ -25,7 +25,7 @@ def get_account():
     #print time accessed - now
     print(f"Last accessed: {time_acc} \n")
 
-#get capacity - in Bytes
+#print capacity - in Bytes
 def get_capacity(my_path):    
     print(f"Capacity: {free_b} \n")
     #print('{:6.2f} GB'.format(TOTAL_AMOUNT))
@@ -34,6 +34,9 @@ def get_capacity(my_path):
 def get_usedSpace(my_path):
       print(f"Used Space: {used_b} \n")
 
+#print total in Bytes
+def get_TotalSpace(my_path):
+    print(f"Total Space: {total_b} \n")
 
 #call get_account function
 get_account()   
@@ -41,3 +44,5 @@ get_account()
 get_capacity(my_path)
 #get_usedSpace
 get_usedSpace(my_path)
+#get total space in byes
+get_TotalSpace(my_path)
