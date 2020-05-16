@@ -23,7 +23,7 @@ def get_account():
     print(f"Last accessed: {time_acc}")
 
 #get capacity - in Bytes
-def get_space(my_path):
+def get_capacity(my_path):
     free_b,used_b,total_b = shutil.disk_usage(my_path)
     print(f"Capacity: {free_b} \n")
     #print('{:6.2f} GB'.format(TOTAL_AMOUNT))
@@ -31,7 +31,8 @@ def get_space(my_path):
     
   
 
+
 #call get_account function
 get_account()   
-#get all space 
-get_space(my_path)
+#get capacity 
+get_capacity(my_path)
