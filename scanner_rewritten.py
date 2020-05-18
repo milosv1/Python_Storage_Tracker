@@ -1,11 +1,12 @@
 #first imported items
-import os
-import sys
-import datetime
-import shutil
-import matplotlib.pyplot as plt; plt.rcdefaults()
-import numpy as np
-import mplcursors
+import os #operating system
+import sys #system
+import datetime #get date and time
+import shutil #allows us to work with files 
+import matplotlib.pyplot as plt; plt.rcdefaults() #allows us to implement graphs and charts
+import numpy as np #numpy- allows us to work with maths
+import mplcursors # this is a new import allows us to interact with bar chart
+
 #calc
 gb = 10 ** 9 #- global
 
@@ -24,7 +25,7 @@ free_b,used_b,total_b = shutil.disk_usage(my_path)
 #calculations total = total_b/gb
 #Used = used_b / gb
 #free = free_b / gb
-#global calcs
+#global calcs - here we get the free amount, used amount and also the total
 free_amount = free_b/gb
 used_amount = used_b/gb
 total_amount = total_b/gb
@@ -59,15 +60,23 @@ def get_TotalSpace(my_path):
 
 #show space in bar chart - also interactive
 def graph_space():
+    #here i have given what needs to be put in the graph, what we are graphing
    usage_types = ('Free Space', 'Used Space', 'Total Space')
-   y_pos = np.arange(len(usage_types))  
+   #arange our space types 'in order'?
+   y_pos = np.arange(len(usage_types))
+   #a list of our usage_points, in the list individually round them off to the 3rd decimal  
    usage_points = [round(free_amount,3),round(used_amount,3),round(total_amount,3)] 
 
+   #How we want our bar chart to look
    plt.bar(y_pos, usage_points,align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
+   #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
    plt.ylabel('Usage Amount')
+   #the title of our graph
    plt.title(f"Space Overview for {user_acc} {get_daydate}")
+   #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
+   #finally show our graph
    plt.show()
 
 #call get_account function
