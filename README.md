@@ -1,2 +1,2 @@
-# Python_Storage_scanner_rewritten
-Python Storage Scanner - However this will be better written. The objective of this is very much the same, as it monitors my PC and Laptop storage and will also notify me when it is at a very low level.
+# Python_Storage_Tracker_Rewritten
+Python Storage Tracker - This is a new implementation of my other storage scanner which was a simple prototype written without the usage of functions! - now i have renamed this project to properly suit its use! This is now going to be known as the Python_Storage_Tracker (rewritten)! this will be a project that will evolve over time, The current state of the project on 18/05/2020 allows the user to see the amount of storage on total_amount, free_amount & used_amount. it also allows the user to view it in a bar graph and interact with the bars to see their storage values! - This project will evolve over time and ideas!
