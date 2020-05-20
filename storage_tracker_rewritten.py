@@ -5,7 +5,7 @@ import datetime #get date and time
 import shutil #allows us to work with files 
 import matplotlib.pyplot as plt; plt.rcdefaults() #allows us to implement graphs and charts
 import numpy as np #numpy- allows us to work with maths
-import mplcursors # this is a new import allows us to interact with bar chart
+import mplcursors # this is a new import allows us to interact with bar chart 
 
 #calc
 gb = 10 ** 9 #- global
@@ -25,10 +25,10 @@ free_b,used_b,total_b = shutil.disk_usage(my_path)
 #calculations total = total_b/gb
 #Used = used_b / gb
 #free = free_b / gb
-#global calcs - here we get the free amount, used amount and also the total
+#global calcs - here we get the free amount, used amount and also the remaining
 free_amount = free_b/gb
 used_amount = used_b/gb
-total_amount = total_b/gb
+remaining_amount = total_b/gb
 
 #test! it works! - rounds to 2 decimal places
 #print(f"{round(free_amount,2)}")
@@ -53,7 +53,7 @@ def get_usedSpace(my_path):
       #print(f"Used Space: {used_b} \n")
       print('{:6.2f} GB'.format(used_b/gb) )
 
-#print total in Bytes
+#print remaining in Bytes
 def get_TotalSpace(my_path):
     #print(f"Total Space: {total_b} \n")
     print('{:6.2f} GB'.format(total_b/gb))
@@ -61,11 +61,11 @@ def get_TotalSpace(my_path):
 #show space in bar chart - also interactive
 def graph_space():
     #here i have given what needs to be put in the graph, what we are graphing
-   usage_types = ('Free Space', 'Used Space', 'Total Space')
+   usage_types = ('Free Space', 'Used Space', 'Remaining Space')
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 3rd decimal  
-   usage_points = [round(free_amount,3),round(used_amount,3),round(total_amount,3)] 
+   usage_points = [round(free_amount,3),round(used_amount,3),round(remaining_amount,3)] 
 
    #How we want our bar chart to look
    plt.bar(y_pos, usage_points,align='center', alpha=0.5)
