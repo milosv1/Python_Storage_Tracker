@@ -79,6 +79,23 @@ def graph_space():
    #finally show our graph
    plt.show()
 
+#generate our piechart - the pie chart is generated once the bar graph is closed
+def gen_piGraph():
+    # usage_labels is what parts of the pie chart will be called
+    usage_labels = 'Free Space', 'Used Space', 'Remaining Space'
+    #the usage sizes should be rounded to 3 decimal points - this does not work %100 right now
+    usage_sizes = [round(free_amount,3),round(used_amount,3),round(remaining_amount,3)]
+    #we will need this to show our plot
+    fig1, ax1 = plt.subplots()
+    #what piechart will feature
+    ax1.pie(usage_sizes,labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
+    #ensure that our graph is drawn as circle
+    ax1.axis('equal')  
+    #generate the pie chart
+    plt.show()
+
+
+
 #call get_account function
 get_account()   
 #get capacity 
@@ -89,3 +106,5 @@ get_usedSpace(my_path)
 get_TotalSpace(my_path)
 #show graph
 graph_space()
+#generate pie graph - this is displayed once the bar graph is closed!
+gen_piGraph()
