@@ -61,7 +61,7 @@ def get_TotalSpace(my_path):
 #show space in bar chart - also interactive
 def graph_space():
     #here i have given what needs to be put in the graph, what we are graphing
-   usage_types = ('Free Space', 'Used Space', 'Remaining Space')
+   usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 3rd decimal  
@@ -82,7 +82,7 @@ def graph_space():
 #generate our piechart - the pie chart is generated once the bar graph is closed
 def gen_piGraph():
     # usage_labels is what parts of the pie chart will be called
-    usage_labels = 'Free Space', 'Used Space', 'Remaining Space'
+    usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
     #the usage sizes should be rounded to 3 decimal points - this does not work %100 right now
     usage_sizes = [round(free_amount,3),round(used_amount,3),round(remaining_amount,3)]
     #we will need this to show our plot
