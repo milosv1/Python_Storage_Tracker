@@ -41,7 +41,7 @@ def get_account():
     #print username logged in
     print(f"User: {user_acc}")
     #print time accessed - now
-    print(f"Last accessed: {time_acc} \n")
+    print(f"Last accessed: {time_acc} \n")      
 
 #print capacity - in Bytes
 def get_capacity(my_path):    
@@ -60,7 +60,9 @@ def get_TotalSpace(my_path):
 
 #show space in bar chart - also interactive
 def graph_space():
-    #here i have given what needs to be put in the graph, what we are graphing
+    #give bar chart window title
+   barGraphwin_Title = plt.figure("Storage Bar Chart")
+  #here i have given what needs to be put in the graph, what we are graphing
    usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
@@ -85,8 +87,8 @@ def gen_piGraph():
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
     #the usage sizes should be rounded to 3 decimal points - this does not work %100 right now
     usage_sizes = [round(free_amount,3),round(used_amount,3),round(remaining_amount,3)]
-    #we will need this to show our plot
-    fig1, ax1 = plt.subplots()
+    #we will need this to show our plot - also give window title for pie chart
+    fig1, ax1 = plt.subplots(num="Storage Pie Chart")
     #what piechart will feature
     ax1.pie(usage_sizes,labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
     #ensure that our graph is drawn as circle
