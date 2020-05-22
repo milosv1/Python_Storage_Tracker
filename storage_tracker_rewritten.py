@@ -78,10 +78,10 @@ def graph_space():
    plt.title(f"Space Overview for {user_acc} {get_daydate}")
    #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
-   #finally show our graph
-   plt.show()
+   #finally show our graph - moved to function call area
+   #plt.show()
 
-#generate our piechart - the pie chart is generated once the bar graph is closed
+#generate our piechart - the pie chart is generated once the bar graph is closed - FIXED
 def gen_piGraph():
     # usage_labels is what parts of the pie chart will be called
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
@@ -93,8 +93,9 @@ def gen_piGraph():
     ax1.pie(usage_sizes,labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
-    #generate the pie chart
-    plt.show()
+    mplcursors.cursor()
+    #generate the pie chart - moved to function call area 
+    #plt.show()
 
 
 
@@ -110,3 +111,5 @@ get_TotalSpace(my_path)
 graph_space()
 #generate pie graph - this is displayed once the bar graph is closed!
 gen_piGraph()
+#placing plt.show() here enables both graphs to open at the same time
+plt.show()
