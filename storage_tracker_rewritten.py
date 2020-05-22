@@ -60,9 +60,9 @@ def get_TotalSpace(my_path):
 
 #show space in bar chart - also interactive
 def graph_space():
-    #give bar chart window title
+   #give bar chart window title
    barGraphwin_Title = plt.figure("Storage Bar Chart")
-  #here i have given what needs to be put in the graph, what we are graphing
+   #here i have given what needs to be put in the graph, what we are graphing
    usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
