@@ -109,7 +109,7 @@ get_usedSpace(my_path)
 get_TotalSpace(my_path)
 #show graph
 graph_space()
-#generate pie graph - this is displayed once the bar graph is closed!
+#generate pie graph - this is displayed once the bar graph is closed! - FIXED
 gen_piGraph()
 #placing plt.show() here enables both graphs to open at the same time
 plt.show()
