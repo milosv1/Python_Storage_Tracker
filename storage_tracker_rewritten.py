@@ -67,7 +67,7 @@ def graph_space():
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 3rd decimal  
-   usage_points = [round(free_amount,3),round(used_amount,3),round(remaining_amount,3)] 
+   usage_points = [round(free_amount,2),round(used_amount,2),round(remaining_amount,2)] 
 
    #How we want our bar chart to look
    plt.bar(y_pos, usage_points,align='center', alpha=0.5)
@@ -80,6 +80,7 @@ def graph_space():
    mplcursors.cursor()
    #finally show our graph - moved to function call area
    #plt.show()
+   
 
 #generate our piechart - the pie chart is generated once the bar graph is closed - FIXED
 def gen_piGraph():
