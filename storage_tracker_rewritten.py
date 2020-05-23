@@ -6,7 +6,7 @@ import shutil #allows us to work with files
 import matplotlib.pyplot as plt; plt.rcdefaults() #allows us to implement graphs and charts
 import numpy as np #numpy- allows us to work with maths
 import mplcursors # this is a new import allows us to interact with bar chart 
-
+from os import path
 #calc
 gb = 10 ** 9 #- global
 
@@ -61,12 +61,12 @@ def get_TotalSpace(my_path):
 #show space in bar chart - also interactive
 def graph_space():
    #give bar chart window title
-   barGraphwin_Title = plt.figure("Storage Bar Chart")
+   barGraphwin_Title = plt.figure("Storage Bar Chart")  
    #here i have given what needs to be put in the graph, what we are graphing
    usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
-   #a list of our usage_points, in the list individually round them off to the 3rd decimal  
+   #a list of our usage_points, in the list individually round them off to the 2nd decimal  
    usage_points = [round(free_amount,2),round(used_amount,2),round(remaining_amount,2)] 
 
    #How we want our bar chart to look
@@ -86,10 +86,12 @@ def graph_space():
 def gen_piGraph():
     # usage_labels is what parts of the pie chart will be called
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
-    #the usage sizes should be rounded to 3 decimal points - this does not work %100 right now
-    usage_sizes = [round(free_amount,3),round(used_amount,3),round(remaining_amount,3)]
+    #the usage sizes should be rounded to 2 decimal points - this does not work %100 right now
+    usage_sizes = [round(free_amount,2),round(used_amount,2),round(remaining_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
+    #Give Pie Chart title
+    plt.title(f"Storage Overview for {user_acc} {get_daydate}")
     #what piechart will feature
     ax1.pie(usage_sizes,labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
     #ensure that our graph is drawn as circle
