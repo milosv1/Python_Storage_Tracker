@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt; plt.rcdefaults() #allows us to implement graphs
 import numpy as np #numpy- allows us to work with maths
 import mplcursors # this is a new import allows us to interact with bar chart 
 from os import path
+import platform #get platform info of user
+
 #calc
 gb = 10 ** 9 #- global
 
@@ -30,12 +32,22 @@ free_amount = free_b/gb
 used_amount = used_b/gb
 remaining_amount = total_b/gb
 
+#get user platform info
+user_platform = sys.platform
+
 #test! it works! - rounds to 2 decimal places
 #print(f"{round(free_amount,2)}")
 
+#spacing
+print(" ")
+
+#get platform info
+def get_platform():
+    print(f"Platform: {user_platform}")
+
 
 #function to get user account & time accessed
-def get_account():
+def get_account():   
     #get time accessed
     time_acc = datetime.datetime.now()
     #print username logged in
@@ -103,7 +115,8 @@ def gen_piGraph():
     #plt.show()
 
 
-
+#Call get_Platform()
+get_platform()
 #call get_account function
 get_account()   
 #get capacity 
