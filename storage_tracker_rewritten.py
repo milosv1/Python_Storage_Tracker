@@ -67,10 +67,10 @@ def graph_space():
    #arange our space types 'in order'?
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
-   usage_points = [round(free_amount,2),round(used_amount,2),round(remaining_amount,2)] 
+   usage_points = [round(free_amount,2), round(used_amount,2), round(remaining_amount,2)] 
 
    #How we want our bar chart to look
-   plt.bar(y_pos, usage_points,align='center', alpha=0.5)
+   plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
    #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
    plt.ylabel('Usage Amount')
@@ -87,13 +87,15 @@ def gen_piGraph():
     # usage_labels is what parts of the pie chart will be called
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
     #the usage sizes should be rounded to 2 decimal points - this does not work %100 right now
-    usage_sizes = [round(free_amount,2),round(used_amount,2),round(remaining_amount,2)]
+    usage_sizes = [round(free_amount,2), round(used_amount,2), round(remaining_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
     #Give Pie Chart title
     plt.title(f"Storage Overview for {user_acc} {get_daydate}")
+    #Explode Remaining Space section of Pie Graph
+    explode = (0,0,0.2)
     #what piechart will feature
-    ax1.pie(usage_sizes,labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
+    ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90, explode=explode)
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
