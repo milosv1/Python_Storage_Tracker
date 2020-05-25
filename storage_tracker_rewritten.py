@@ -34,6 +34,8 @@ remaining_amount = total_b/gb
 
 #get user platform info
 user_platform = sys.platform
+#show platform release
+user_platformRel = platform.release()
 
 #test! it works! - rounds to 2 decimal places
 #print(f"{round(free_amount,2)}")
@@ -44,6 +46,7 @@ print(" ")
 #get platform info
 def get_platform():
     print(f"Platform: {user_platform}")
+    print(f"Platform Release: {user_platformRel}")
 
 
 #function to get user account & time accessed
