@@ -45,7 +45,9 @@ print(" ")
 
 #get platform info
 def get_platform():
+    #get the platform itself
     print(f"Platform: {user_platform}")
+    #get the version release 
     print(f"Platform Release: {user_platformRel}")
 
 
