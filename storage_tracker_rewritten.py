@@ -40,6 +40,8 @@ user_platformRel = platform.release()
 #test! it works! - rounds to 2 decimal places
 #print(f"{round(free_amount,2)}")
 
+#simply show core count of device
+core_Count = os.cpu_count()
 #spacing
 print(" ")
 
@@ -49,7 +51,8 @@ def get_platform():
     print(f"Platform: {user_platform}")
     #get the version release 
     print(f"Platform Release: {user_platformRel}")
-
+    #show how many cores are available
+    print(f'CPU Count: {core_Count}')
 
 #function to get user account & time accessed
 def get_account():   
@@ -116,8 +119,10 @@ def gen_piGraph():
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
+    print(" ")
     #generate the pie chart - moved to function call area 
     #plt.show()
+
 
 
 #Call get_Platform()
