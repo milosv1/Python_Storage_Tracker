@@ -125,19 +125,11 @@ def gen_piGraph():
 
 
 
-#Call get_Platform()
 get_platform()
-#call get_account function
 get_account()   
-#get capacity 
 get_capacity(my_path)
-#get_usedSpace
 get_usedSpace(my_path)
-#get total space in byes
 get_TotalSpace(my_path)
-#show graph
 graph_space()
-#generate pie graph - this is displayed once the bar graph is closed! - FIXED
 gen_piGraph()
-#placing plt.show() here enables both graphs to open at the same time
 plt.show()
