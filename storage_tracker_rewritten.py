@@ -8,9 +8,10 @@ import numpy as np #numpy- allows us to work with maths
 import mplcursors # this is a new import allows us to interact with bar chart 
 from os import path
 import platform #get platform info of user
+import psutil
 
 #calc
-gb = 10 ** 9 #- global
+gb = 10 ** 9 
 
 #get users account username - global
 user_acc = os.getlogin()
@@ -21,7 +22,6 @@ get_daydate = datetime.datetime.now()
 #path needed - global - '/' root directory
 my_path = '/'
 
-#new Global
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
 #calculations total = total_b/gb
@@ -42,16 +42,20 @@ user_platformRel = platform.release()
 
 #simply show core count of device
 core_Count = os.cpu_count()
-#spacing
+
+
+#virtual_memoryPercentage = psutil.virtual_memory()[2]/2.**30
+#print('Virtual Memory: {:6.2f}'.format(virtual_memoryPercentage/2.**30))
+
 print(" ")
 
-#get platform info
+#get platform related info here
 def get_platform():
     #get the platform itself
     print(f"Platform: {user_platform}")
     #get the version release 
     print(f"Platform Release: {user_platformRel}")
-    #show how many cores are available
+    #show how many cores are available 
     print(f'CPU Count: {core_Count}')
 
 #function to get user account & time accessed
@@ -95,7 +99,7 @@ def graph_space():
    #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
    plt.ylabel('Usage Amount')
    #the title of our graph
-   plt.title(f"Space Overview for {user_acc} {get_daydate}")
+   plt.title(f"Storage Overview for {user_acc} {get_daydate}")
    #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
    #finally show our graph - moved to function call area
