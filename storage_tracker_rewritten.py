@@ -8,7 +8,6 @@ import mplcursors # this is a new import allows us to interact with bar chart
 from os import path
 import platform #get platform info of user
 import psutil
-from psutil import virtual_memory
 
 gb = 10 ** 9 
 
