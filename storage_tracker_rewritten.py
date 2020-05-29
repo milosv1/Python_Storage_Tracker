@@ -1,4 +1,3 @@
-#first imported items
 import os #operating system
 import sys #system
 import datetime #get date and time
@@ -27,9 +26,9 @@ free_b,used_b,total_b = shutil.disk_usage(my_path)
 #Used = used_b / gb
 #free = free_b / gb
 #here we get the free amount, used amount and also the remaining
-free_amount = free_b/gb
-used_amount = used_b/gb
-remaining_amount = total_b/gb
+freespace_amount = free_b/gb
+usedspace_amount = used_b/gb
+remainingspace_amount = total_b/gb
 
 #get user platform info
 user_platform = sys.platform
@@ -38,11 +37,8 @@ user_platformRel = platform.release()
 
 #simply show core count of device
 core_Count = os.cpu_count()
-
-#virtual_memoryPercentage = psutil.virtual_memory()[2]/2.**30
-#print('Virtual Memory: {:6.2f}'.format(virtual_memoryPercentage/2.**30))
-
-print(" ")
+parts = psutil.disk_partitions()
+print("  ")
 
 #get platform related info here
 def get_platform():
@@ -86,7 +82,7 @@ def graph_space():
    #arange our space types 
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
-   usage_points = [round(free_amount,2), round(used_amount,2), round(remaining_amount,2)] 
+   usage_points = [round(freespace_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)] 
 
    #How we want our bar chart to look
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
@@ -105,7 +101,7 @@ def gen_piGraph():
     # usage_labels is what parts of the pie chart will be called
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
     #the usage sizes should be rounded to 2 decimal points - this does not work %100 right now
-    usage_sizes = [round(free_amount,2), round(used_amount,2), round(remaining_amount,2)]
+    usage_sizes = [round(freespace_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
     #Give Pie Chart title
