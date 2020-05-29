@@ -37,7 +37,7 @@ user_platformRel = platform.release()
 
 #simply show core count of device
 core_Count = os.cpu_count()
-parts = psutil.disk_partitions()
+
 print("  ")
 
 #get platform related info here
