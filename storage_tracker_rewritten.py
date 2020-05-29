@@ -10,10 +10,9 @@ from os import path
 import platform #get platform info of user
 import psutil
 
-#calc
 gb = 10 ** 9 
 
-#get users account username - global
+#get users account username 
 user_acc = os.getlogin()
 
 #get time & date
@@ -27,7 +26,7 @@ free_b,used_b,total_b = shutil.disk_usage(my_path)
 #calculations total = total_b/gb
 #Used = used_b / gb
 #free = free_b / gb
-#global calcs - here we get the free amount, used amount and also the remaining
+#here we get the free amount, used amount and also the remaining
 free_amount = free_b/gb
 used_amount = used_b/gb
 remaining_amount = total_b/gb
@@ -37,12 +36,8 @@ user_platform = sys.platform
 #show platform release
 user_platformRel = platform.release()
 
-#test! it works! - rounds to 2 decimal places
-#print(f"{round(free_amount,2)}")
-
 #simply show core count of device
 core_Count = os.cpu_count()
-
 
 #virtual_memoryPercentage = psutil.virtual_memory()[2]/2.**30
 #print('Virtual Memory: {:6.2f}'.format(virtual_memoryPercentage/2.**30))
@@ -67,7 +62,7 @@ def get_account():
     #print time accessed - now
     print(f"Last accessed: {time_acc} \n")      
 
-#print capacity - in Bytes
+#print capacity in Bytes
 def get_capacity(my_path):    
     #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
     print('{:6.2f} GB Capacity'.format(free_b/gb))
@@ -88,7 +83,7 @@ def graph_space():
    barGraphwin_Title = plt.figure("Storage Bar Chart")  
    #here i have given what needs to be put in the graph, what we are graphing
    usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
-   #arange our space types 'in order'?
+   #arange our space types 
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
    usage_points = [round(free_amount,2), round(used_amount,2), round(remaining_amount,2)] 
@@ -102,8 +97,7 @@ def graph_space():
    plt.title(f"Storage Overview for {user_acc} {get_daydate}")
    #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
-   #finally show our graph - moved to function call area
-   #plt.show()
+  
    
 
 #generate our piechart - the pie chart is generated once the bar graph is closed - FIXED
@@ -124,8 +118,6 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
     print(" ")
-    #generate the pie chart - moved to function call area 
-    #plt.show()
 
 
 
