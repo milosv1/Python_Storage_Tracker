@@ -9,6 +9,7 @@ from os import path
 import platform #get platform info of user
 import psutil
 
+#to gb calc
 gb = 10 ** 9 
 
 #get users account username 
@@ -17,7 +18,7 @@ user_acc = os.getlogin()
 #get time & date
 get_daydate = datetime.datetime.now()
 
-#path needed - global - '/' root directory
+#path - '/' root directory
 my_path = '/'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
@@ -33,10 +34,10 @@ remainingspace_amount = total_b/gb
 #get user platform info
 user_platform = sys.platform
 #show platform release
-user_platformRel = platform.release()
+user_platform_rel = platform.release()
 
 #simply show core count of device
-core_Count = os.cpu_count()
+core_count = os.cpu_count()
 
 print("  ")
 
@@ -45,9 +46,9 @@ def get_platform():
     #get the platform itself
     print(f"Platform: {user_platform}")
     #get the version release 
-    print(f"Platform Release: {user_platformRel}")
+    print(f"Platform Release: {user_platform_rel}")
     #show how many cores are available 
-    print(f'CPU Count: {core_Count}')
+    print(f'CPU Count: {core_count}')
 
 #function to get user account & time accessed
 def get_account():   
@@ -76,7 +77,7 @@ def get_TotalSpace(my_path):
 #show space in bar chart - also interactive
 def graph_space():
    #give bar chart window title
-   barGraphwin_Title = plt.figure("Storage Bar Chart")  
+   bargraphwin_title = plt.figure("Storage Bar Chart")  
    #here i have given what needs to be put in the graph, what we are graphing
    usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
    #arange our space types 
