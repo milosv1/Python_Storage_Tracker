@@ -36,10 +36,23 @@ user_platform = sys.platform
 #show platform release
 user_platform_rel = platform.release()
 
-#simply show core count of device
+#show core count of device
 core_count = os.cpu_count()
 
+#get sent and recieved amount of bytes
+bytes_sent = psutil.net_io_counters().bytes_sent
+bytes_recv = psutil.net_io_counters().bytes_recv
+
 print(" ")
+
+#this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
+def get_size(bytes, suffix="B"):
+    fact = 1024
+    for unit in ["","K","M","G","T","P"]:
+        if bytes < fact:
+            return f'{bytes:.2f}{unit}{suffix}'
+        bytes /= fact
+
 
 #get platform related info here
 def get_platform():
@@ -49,6 +62,11 @@ def get_platform():
     print(f"Platform Release: {user_platform_rel}")
     #show how many cores are available 
     print(f'CPU Count: {core_count}')
+    #sent amount 
+    print(f'Total Bytes Sent: {get_size(bytes_sent)}')
+    #recieved amount 
+    print(f'Total Bytes Recieved: {get_size(bytes_recv)}')
+
 
 #function to get user account & time accessed
 def get_account():   
@@ -115,6 +133,8 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
     print(" ")
+
+
 
 
 
