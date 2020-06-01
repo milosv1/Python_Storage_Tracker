@@ -45,7 +45,7 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
-print(" ")
+#print(" ")
 
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
 def get_size(bytes, suffix="B"):
@@ -59,22 +59,8 @@ def get_size(bytes, suffix="B"):
 def usageper_core():
     for i, percentage in enumerate(per_cpu):
       print(f'Core {i}: {percentage}%')
-    print(f'Total CPU Usage: {psutil.cpu_percent()}%')   
+    print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
 
-
-#get platform related info here
-def get_platform():
-    #get the platform itself
-    print(f"Platform: {user_platform}")
-    #get the version release 
-    print(f"Platform Release: {user_platform_rel}")
-    #sent amount 
-    print(f'Total Bytes Sent: {get_size(bytes_sent)}')
-    #recieved amount 
-    print(f'Total Bytes Recieved: {get_size(bytes_recv)}')
-    print(f'Physical Core Count: {physicalcore_count}')
-    print(f'Total Core Count: {totalcore_count}')
-  
 
 #function to get user account & time accessed
 def get_account():   
@@ -83,7 +69,24 @@ def get_account():
     #print username logged in
     print(f"User: {user_acc}")
     #print time accessed - now
-    print(f"Last accessed: {time_acc} \n")      
+    print(f"Last accessed: {time_acc}")      
+
+
+
+#get platform related info here
+def get_platform():
+    #get the platform itself
+    print(f"Platform: {user_platform}")
+    #get the version release 
+    print(f"Platform Release: {user_platform_rel} \n")
+    #sent amount 
+    print(f'Total Bytes Sent: {get_size(bytes_sent)}')
+    #recieved amount 
+    print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
+    print(f'Physical Core Count: {physicalcore_count}')
+    print(f'Total Core Count: {totalcore_count}')
+    
+  
 
 #print capacity in Bytes
 def get_capacity(my_path):    
@@ -140,15 +143,13 @@ def gen_piGraph():
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
-    print(" ")
+    #print(" ")
 
 
 
-
-
+get_account()  
 get_platform()
 usageper_core()
-get_account()   
 get_capacity(my_path)
 get_usedSpace(my_path)
 get_TotalSpace(my_path)
