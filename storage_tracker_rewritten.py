@@ -43,6 +43,8 @@ totalcore_count = psutil.cpu_count(logical=True)
 bytes_sent = psutil.net_io_counters().bytes_sent
 bytes_recv = psutil.net_io_counters().bytes_recv
 
+per_cpu = psutil.cpu_percent(percpu=True, interval=1)
+
 print(" ")
 
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
@@ -54,20 +56,25 @@ def get_size(bytes, suffix="B"):
         bytes /= fact
 
 
+def usageper_core():
+    for i, percentage in enumerate(per_cpu):
+      print(f'Core {i}: {percentage}%')
+    print(f'Total CPU Usage: {psutil.cpu_percent()}%')   
+
+
 #get platform related info here
 def get_platform():
     #get the platform itself
     print(f"Platform: {user_platform}")
     #get the version release 
     print(f"Platform Release: {user_platform_rel}")
-    #show how many cores are available 
-    print(f'Physical Core Count: {physicalcore_count}')
-    print(f'Total Core Count: {totalcore_count}')
     #sent amount 
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     #recieved amount 
     print(f'Total Bytes Recieved: {get_size(bytes_recv)}')
-
+    print(f'Physical Core Count: {physicalcore_count}')
+    print(f'Total Core Count: {totalcore_count}')
+  
 
 #function to get user account & time accessed
 def get_account():   
@@ -140,6 +147,7 @@ def gen_piGraph():
 
 
 get_platform()
+usageper_core()
 get_account()   
 get_capacity(my_path)
 get_usedSpace(my_path)
