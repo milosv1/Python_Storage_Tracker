@@ -36,8 +36,8 @@ user_platform = sys.platform
 #show platform release
 user_platform_rel = platform.release()
 
-#show core count of device
-core_count = os.cpu_count()
+physicalcore_count = psutil.cpu_count(logical=False)
+totalcore_count = psutil.cpu_count(logical=True)
 
 #get sent and recieved amount of bytes
 bytes_sent = psutil.net_io_counters().bytes_sent
@@ -61,7 +61,8 @@ def get_platform():
     #get the version release 
     print(f"Platform Release: {user_platform_rel}")
     #show how many cores are available 
-    print(f'CPU Count: {core_count}')
+    print(f'Physical Core Count: {physicalcore_count}')
+    print(f'Total Core Count: {totalcore_count}')
     #sent amount 
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     #recieved amount 
