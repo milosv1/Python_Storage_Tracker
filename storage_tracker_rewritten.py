@@ -12,13 +12,11 @@ import psutil
 #to gb calc
 gb = 10 ** 9 
 
-#get users account username 
 user_acc = os.getlogin()
 
-#get time & date
 get_daydate = datetime.datetime.now()
 
-#'/' root directory
+#root directory
 my_path = '/'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
@@ -45,8 +43,6 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
-#print(" ")
-
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
 def get_size(bytes, suffix="B"):
     fact = 1024
@@ -72,7 +68,6 @@ def get_account():
     print(f"Last accessed: {time_acc}")      
 
 
-
 #get platform related info here
 def get_platform():
     #get the platform itself
@@ -87,7 +82,6 @@ def get_platform():
     print(f'Total Core Count: {totalcore_count}')
     
   
-
 #print capacity in Bytes
 def get_capacity(my_path):    
     #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
@@ -125,7 +119,6 @@ def graph_space():
    mplcursors.cursor()
   
    
-
 #generate our piechart - the pie chart is generated once the bar graph is closed - FIXED
 def gen_piGraph():
     # usage_labels is what parts of the pie chart will be called
@@ -143,9 +136,7 @@ def gen_piGraph():
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
-    #print(" ")
-
-
+   
 
 get_account()  
 get_platform()
