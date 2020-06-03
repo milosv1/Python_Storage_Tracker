@@ -104,7 +104,7 @@ def graph_space():
    #give bar chart window title
    bargraphwin_title = plt.figure("Storage Bar Chart")  
    #here i have given what needs to be put in the graph, what we are graphing
-   usage_types = ('Storage Capacity', 'Used Space', 'Remaining Space')
+   usage_types = (f'Storage Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Remaining Space \n {round(remainingspace_amount,2)} GB')
    #arange our space types 
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
