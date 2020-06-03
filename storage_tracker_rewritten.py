@@ -43,20 +43,6 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
-#this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
-def get_size(bytes, suffix="B"):
-    fact = 1024
-    for unit in ["","K","M","G","T","P"]:
-        if bytes < fact:
-            return f'{bytes:.2f}{unit}{suffix}'
-        bytes /= fact
-
-
-def usageper_core():
-    for i, percentage in enumerate(per_cpu):
-      print(f'Core {i}: {percentage}%')
-    print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
-
 
 #function to get user account & time accessed
 def get_account():   
@@ -82,6 +68,21 @@ def get_platform():
     print(f'Total Core Count: {totalcore_count}')
     
   
+#this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
+def get_size(bytes, suffix="B"):
+    fact = 1024
+    for unit in ["","K","M","G","T","P"]:
+        if bytes < fact:
+            return f'{bytes:.2f}{unit}{suffix}'
+        bytes /= fact
+
+# % of usage per core & total CPU usage %
+def usageper_core():
+    for i, percentage in enumerate(per_cpu):
+      print(f'Core {i}: {percentage}%')
+    print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
+
+
 #print capacity in Bytes
 def get_capacity(my_path):    
     #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
