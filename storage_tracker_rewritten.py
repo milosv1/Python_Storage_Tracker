@@ -21,9 +21,6 @@ my_path = '/'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
-#Storage Capacity = total_b/gb
-#Used = used_b / gb
-#free = free_b / gb
 #get capacity - free space - used space
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
@@ -76,6 +73,7 @@ def get_size(bytes, suffix="B"):
             return f'{bytes:.2f}{unit}{suffix}'
         bytes /= fact
 
+
 # % of usage per core & total CPU usage %
 def usageper_core():
     for i, percentage in enumerate(per_cpu):
@@ -88,15 +86,18 @@ def get_capacity(my_path):
     #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
     print('{:6.2f} GB Capacity'.format(free_b/gb))
     
+
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #print(f"Used Space: {used_b} \n")
       print('{:6.2f} GB Used'.format(used_b/gb) )
 
+
 #print remaining in Bytes
 def get_TotalSpace(my_path):
     #print(f"Total Space: {total_b} \n")
     print('{:6.2f} GB Remaining'.format(total_b/gb))
+
 
 #show space in bar chart - also interactive
 def graph_space():
@@ -108,7 +109,6 @@ def graph_space():
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
    usage_points = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)] 
-
    #How we want our bar chart to look
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
