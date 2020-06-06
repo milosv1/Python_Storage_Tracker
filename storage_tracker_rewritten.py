@@ -84,19 +84,19 @@ def usageper_core():
 #print capacity in Bytes
 def get_capacity(my_path):    
     #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
-    print('{:6.2f} GB Capacity'.format(free_b/gb))
+    print('Capacity: {:6.2f} GB'.format(free_b/gb))
     
 
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #print(f"Used Space: {used_b} \n")
-      print('{:6.2f} GB Used'.format(used_b/gb) )
+      print('Used: {:6.2f} GB '.format(used_b/gb) )
 
 
 #print remaining in Bytes
 def get_TotalSpace(my_path):
     #print(f"Total Space: {total_b} \n")
-    print('{:6.2f} GB Remaining'.format(total_b/gb))
+    print('Remaining: {:6.2f} GB'.format(total_b/gb))
 
 
 #show space in bar chart - also interactive
