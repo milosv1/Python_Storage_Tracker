@@ -26,15 +26,15 @@ storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
 
-#get user platform info
+
 user_platform = sys.platform
-#show platform release
+
 user_platform_rel = platform.release()
 
 physicalcore_count = psutil.cpu_count(logical=False)
 totalcore_count = psutil.cpu_count(logical=True)
 
-#get sent and recieved amount of bytes
+
 bytes_sent = psutil.net_io_counters().bytes_sent
 bytes_recv = psutil.net_io_counters().bytes_recv
 
@@ -51,7 +51,7 @@ def get_account():
     print(f"Last accessed: {time_acc}")      
 
 
-#get platform related info here
+#get platform related info 
 def get_platform():
     #get the platform itself
     print(f"Platform: {user_platform}")
