@@ -41,6 +41,8 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
+#choice for charts
+chart_choice = r''
 
 #function to get user account & time accessed
 def get_account():   
@@ -140,10 +142,10 @@ def gen_piGraph():
     mplcursors.cursor()
    
 
-def get_args(input):
+def get_args(chart_choice):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-b","--barchart", help="Type either barchart or piechart to see results visually", action="store_true")
-    parser.add_argument("-p", "--piechart")
+    parser.add_argument("--barchart", help="Type either barchart or piechart to see results visually")
+    parser.add_argument("--piechart")
     args = parser.parse_args()
 
     if args.barchart:
@@ -151,7 +153,8 @@ def get_args(input):
        plt.show(graph_space())
     elif args.piechart:
         print('Launching Pie Chart..')
-        plt.show(gen_piGraph())    
+        plt.show(gen_piGraph()) 
+         
         
 
 
@@ -161,7 +164,7 @@ usageper_core()
 get_capacity(my_path)
 get_usedSpace(my_path)
 get_TotalSpace(my_path)
-get_args(input)
+get_args(chart_choice)
 graph_space()
 gen_piGraph()
 #plt.show()
