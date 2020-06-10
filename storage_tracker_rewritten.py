@@ -8,6 +8,7 @@ import mplcursors # this is a new import allows us to interact with bar chart
 from os import path
 import platform #get platform info of user
 import psutil
+import argparse
 
 #to gb calc
 gb = 10 ** 9 
@@ -139,12 +140,28 @@ def gen_piGraph():
     mplcursors.cursor()
    
 
+def get_args(input):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-b","--barchart", help="Type either barchart or piechart to see results visually", action="store_true")
+    parser.add_argument("-p", "--piechart")
+    args = parser.parse_args()
+
+    if args.barchart:
+       print('Launching Bar chart..')
+       plt.show(graph_space())
+    elif args.piechart:
+        print('Launching Pie Chart..')
+        plt.show(gen_piGraph())    
+        
+
+
 get_account()  
 get_platform()
 usageper_core()
 get_capacity(my_path)
 get_usedSpace(my_path)
 get_TotalSpace(my_path)
+get_args(input)
 graph_space()
 gen_piGraph()
-plt.show()
+#plt.show()
