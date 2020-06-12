@@ -42,7 +42,7 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 #choice for charts
-chart_choice = r''
+chart_choice = ''
 
 #function to get user account & time accessed
 def get_account():   
@@ -149,10 +149,10 @@ def get_args(chart_choice):
     args = parser.parse_args()
 
     if args.barchart:
-       print('Launching Bar chart..')
+       print(f'Launching {args.barchart}..')
        plt.show(graph_space())
     elif args.piechart:
-        print('Launching Pie Chart..')
+        print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
          
         
