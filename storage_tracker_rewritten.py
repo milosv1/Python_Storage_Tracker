@@ -144,7 +144,7 @@ def gen_piGraph():
 
 def get_args(chart_choice):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--barchart", help="Type either barchart or piechart to see results visually")
+    parser.add_argument("--barchart", help="Type either --barchart barchart or --piechart piechart to see results visually")
     parser.add_argument("--piechart")
     args = parser.parse_args()
 
