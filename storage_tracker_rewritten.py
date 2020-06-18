@@ -9,6 +9,8 @@ from os import path
 import platform #get platform info of user
 import psutil
 import argparse
+from alive_progress import alive_bar; import time
+
 
 #to gb calc
 gb = 10 ** 9 
@@ -43,6 +45,7 @@ per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 #choice for charts
 chart_choice = ''
+
 
 #function to get user account & time accessed
 def get_account():   
@@ -143,20 +146,34 @@ def gen_piGraph():
    
 
 def get_args(chart_choice):
+    animation = "|/-\\"
     parser = argparse.ArgumentParser()
     parser.add_argument("--barchart", help="Type either --barchart barchart or --piechart piechart to see results visually")
     parser.add_argument("--piechart")
     args = parser.parse_args()
 
     if args.barchart:
-       print(f'Launching {args.barchart}..')
-       plt.show(graph_space())
+        print(f'Launching {args.barchart}..')
+        plt.show(graph_space())
     elif args.piechart:
         print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
-         
-        
 
+
+
+"""
+def test():
+
+    with alive_bar(200, bar="smooth") as bar:
+        for i in range(200):
+            time.sleep(.05)
+            bar
+     # items = range(1000)                  # retrieve your set of items
+      #with alive_bar(len(items)) as bar:   # declare your expected total
+       #     for item in items:               # iterate as usual
+                # process each item
+        #        bar()        
+"""
 
 get_account()  
 get_platform()
@@ -167,4 +184,4 @@ get_TotalSpace(my_path)
 get_args(chart_choice)
 graph_space()
 gen_piGraph()
-#plt.show()
+
