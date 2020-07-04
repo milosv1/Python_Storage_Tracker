@@ -9,8 +9,6 @@ from os import path
 import platform #get platform info of user
 import psutil
 import argparse
-from alive_progress import alive_bar; import time
-
 
 #to gb calc
 gb = 10 ** 9 
@@ -160,20 +158,6 @@ def get_args(chart_choice):
         plt.show(gen_piGraph()) 
 
 
-
-"""
-def test():
-
-    with alive_bar(200, bar="smooth") as bar:
-        for i in range(200):
-            time.sleep(.05)
-            bar
-     # items = range(1000)                  # retrieve your set of items
-      #with alive_bar(len(items)) as bar:   # declare your expected total
-       #     for item in items:               # iterate as usual
-                # process each item
-        #        bar()        
-"""
 
 get_account()  
 get_platform()
