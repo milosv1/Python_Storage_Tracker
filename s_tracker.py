@@ -27,7 +27,6 @@ storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
 
-
 user_platform = sys.platform
 
 user_platform_rel = platform.release()
@@ -35,40 +34,30 @@ user_platform_rel = platform.release()
 physicalcore_count = psutil.cpu_count(logical=False)
 totalcore_count = psutil.cpu_count(logical=True)
 
-
 bytes_sent = psutil.net_io_counters().bytes_sent
 bytes_recv = psutil.net_io_counters().bytes_recv
 
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
-#choice for charts
 chart_choice = ''
-
 
 #function to get user account & time accessed
 def get_account():   
-    #get time accessed
     time_acc = datetime.datetime.now()
-    #print username logged in
     print(f"User: {user_acc}")
-    #print time accessed - now
     print(f"Last accessed: {time_acc}")      
 
 
 #get platform related info 
 def get_platform():
-    #get the platform itself
     print(f"Platform: {user_platform}")
-    #get the version release 
     print(f"Platform Release: {user_platform_rel} \n")
-    #sent amount 
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
-    #recieved amount 
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
     print(f'Total Core Count: {totalcore_count}')
-    
-  
+
+
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
 def get_size(bytes, suffix="B"):
     fact = 1024
@@ -105,7 +94,6 @@ def get_TotalSpace(my_path):
 
 #show space in bar chart - also interactive
 def graph_space():
-   #give bar chart window title
    bargraphwin_title = plt.figure("Storage Bar Chart")  
    #here i have given what needs to be put in the graph, what we are graphing
    usage_types = (f'Storage Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Remaining Space \n {round(remainingspace_amount,2)} GB')
@@ -113,7 +101,6 @@ def graph_space():
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
    usage_points = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)] 
-   #How we want our bar chart to look
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
    #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
@@ -126,17 +113,13 @@ def graph_space():
    
 #generate our piechart - the pie chart is generated once the bar graph is closed - FIXED
 def gen_piGraph():
-    # usage_labels is what parts of the pie chart will be called
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
-    #the usage sizes should be rounded to 2 decimal points - this does not work %100 right now
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
-    #Give Pie Chart title
     plt.title(f"Storage Overview for {user_acc} {get_daydate}")
     #Explode Remaining Space section of Pie Graph
     explode = (0,0,0.2)
-    #what piechart will feature
     ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90, explode=explode)
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
@@ -144,19 +127,16 @@ def gen_piGraph():
    
 
 def get_args(chart_choice):
-    animation = "|/-\\"
     parser = argparse.ArgumentParser()
     parser.add_argument("--barchart", help="Type either --barchart barchart or --piechart piechart to see results visually")
     parser.add_argument("--piechart")
     args = parser.parse_args()
-
     if args.barchart:
         print(f'Launching {args.barchart}..')
         plt.show(graph_space())
     elif args.piechart:
         print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
-
 
 
 get_account()  
