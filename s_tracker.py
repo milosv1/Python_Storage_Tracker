@@ -130,6 +130,7 @@ def get_args(chart_choice):
     parser = argparse.ArgumentParser()
     parser.add_argument("--barchart", help="Type either --barchart barchart or --piechart piechart to see results visually")
     parser.add_argument("--piechart")
+    parser.add_argument("--cstorage") #check if remaining storage is at a safe level, if not show windows notification
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}..')
@@ -137,6 +138,8 @@ def get_args(chart_choice):
     elif args.piechart:
         print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
+    elif args.cstorage:
+        print("works..")    
 
 
 get_account()  
