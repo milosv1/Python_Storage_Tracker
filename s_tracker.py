@@ -139,6 +139,7 @@ def get_args(chart_choice):
         print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
     elif args.chstorage:
+        #[Objective] We need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
         print("works..")    
 
 
