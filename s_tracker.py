@@ -111,7 +111,7 @@ def graph_space():
    mplcursors.cursor()
   
    
-#generate our piechart - the pie chart is generated once the bar graph is closed - FIXED
+#generate our piechart 
 def gen_piGraph():
     usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
@@ -130,7 +130,7 @@ def get_args(chart_choice):
     parser = argparse.ArgumentParser()
     parser.add_argument("--barchart", help="Type either --barchart barchart or --piechart piechart to see results visually")
     parser.add_argument("--piechart")
-    parser.add_argument("--chstorage") #check if remaining storage is at a safe level, if not show notification / chstorage is short for checkstorage
+    parser.add_argument("--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}..')
