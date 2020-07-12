@@ -10,6 +10,7 @@ import platform #get platform info of user
 import psutil
 import argparse
 
+
 #to gb calc
 gb = 10 ** 9 
 
@@ -26,6 +27,10 @@ free_b,used_b,total_b = shutil.disk_usage(my_path)
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
+
+#10gb = 10,737,418,240
+minspace_amount = 1024**3*10  
+#print(minspace_amount)
 
 user_platform = sys.platform
 
@@ -140,7 +145,8 @@ def get_args(chart_choice):
         plt.show(gen_piGraph()) 
     elif args.chstorage:
         #[Objective] We need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
-        print("works..")    
+        #[Objective] We need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
+        print(f"--{args.chstorage} in progress")       
 
 
 get_account()  
