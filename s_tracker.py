@@ -18,6 +18,8 @@ user_acc = os.getlogin()
 
 get_daydate = datetime.datetime.now()
 
+system_name = platform.node()
+
 #root directory
 my_path = '/'
 
@@ -55,6 +57,7 @@ def get_account():
 
 #get platform related info 
 def get_platform():
+    print(f"System Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
