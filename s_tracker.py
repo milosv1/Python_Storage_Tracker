@@ -136,7 +136,7 @@ def gen_piGraph():
 
 def get_args(chart_choice):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--barchart", help="Type either --barchart barchart or --piechart piechart to see results visually")
+    parser.add_argument("--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
     parser.add_argument("--piechart")
     parser.add_argument("--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
     args = parser.parse_args()
