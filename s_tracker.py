@@ -149,8 +149,9 @@ def get_args(chart_choice):
         print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
     elif args.chstorage:
-        #[Complete] We need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
-        #[Complete] We need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
+        #[Complete] I need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
+        #[Complete] I need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
+        #[Objective] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is greater than the minimum threshold amount of {round(min_gb_value,2)} GB")    
         elif remainingspace_amount < min_gb_value:
