@@ -12,7 +12,8 @@ import argparse
 
 
 #to gb calc
-gb = 10 ** 9 
+gb = 10 ** 9
+#print("GB VALUE:",gb) 
 
 user_acc = os.getlogin()
 
@@ -32,7 +33,8 @@ remainingspace_amount = total_b/gb
 
 #10gb = 10,737,418,240
 minspace_amount = 1024**3*10  
-#print(minspace_amount)
+min_gb_value = minspace_amount/gb
+#print(round(min_gb_value,2))
 
 user_platform = sys.platform
 
@@ -147,10 +149,12 @@ def get_args(chart_choice):
         print(f'Launching {args.piechart}..')
         plt.show(gen_piGraph()) 
     elif args.chstorage:
-        #[Objective] We need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
-        #[Objective] We need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
-        print(f"--{args.chstorage} in progress")       
-
+        #[Complete] We need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
+        #[Complete] We need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
+        if remainingspace_amount > min_gb_value:
+            print(f"You have {round(remainingspace_amount,2)} GB which is greater than the minimum threshold amount of {round(min_gb_value,2)} GB")    
+        elif remainingspace_amount < min_gb_value:
+            print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum threshold amount of {round(min_gb_value,2)} GB")
 
 get_account()  
 get_platform()
