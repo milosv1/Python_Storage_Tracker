@@ -9,6 +9,7 @@ from os import path
 import platform #get platform info of user
 import psutil
 import argparse
+from notifypy import Notify
 
 
 #to gb calc
@@ -49,6 +50,11 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 chart_choice = ''
+
+#below are the paths to the icons which are displayed in the notifications - simply replace string within the quoataion marks with your location pointing to icons.
+#this is different to everyone, my location just appears to be a little longer because of where I have saved it and the folder names.
+safe_notification_icon = r"C:\Add\Your\Path\Here\..\..\..\storage_passed_icon.jpg"
+warning_notification_icon = r"C:\Add\Your\Path\Here\..\..\..\storage_warning_icon.png"
 
 #function to get user account & time accessed
 def get_account():   
@@ -154,8 +160,18 @@ def get_args(chart_choice):
         #[Objective] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is greater than the minimum threshold amount of {round(min_gb_value,2)} GB")    
+            notification = Notify()
+            notification.title = "Storage level Safe"
+            notification.message = "You have a safe level of remaining storage"
+            notification.icon =  safe_notification_icon
+            notification.send()
         elif remainingspace_amount < min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum threshold amount of {round(min_gb_value,2)} GB")
+            notification_notsafe = Notify()
+            notification_notsafe.title = "Storage level Warning"
+            notification_notsafe.message = "Warning: Storage levels are low"
+            notification_notsafe.icon = warning_notification_icon
+            notification_notsafe.send()
 
 get_account()  
 get_platform()
