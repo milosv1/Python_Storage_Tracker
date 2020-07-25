@@ -10,7 +10,7 @@ import platform #get platform info of user
 import psutil
 import argparse
 from notifypy import Notify
-
+from pathlib import Path
 
 #to gb calc
 gb = 10 ** 9
@@ -53,8 +53,9 @@ chart_choice = ''
 
 #below are the paths to the icons which are displayed in the notifications - simply replace string within the quoataion marks with your location pointing to icons.
 #this is different to everyone, my location just appears to be a little longer because of where I have saved it and the folder names.
-safe_notification_icon = r"C:\Add\Your\Path\Here\..\..\..\storage_passed_icon.jpg"
-warning_notification_icon = r"C:\Add\Your\Path\Here\..\..\..\storage_warning_icon.png"
+
+safe_notification_icon = r"/Users/milosvuksanovic/Desktop/u_f/Python_Storage_scanner_rewritten/storage_passed_icon.jpg"
+warning_notification_icon = r"/Users/milosvuksanovic/Desktop/u_f/Python_Storage_scanner_rewritten/storage_warning_icon.png"
 
 #function to get user account & time accessed
 def get_account():   
@@ -135,8 +136,8 @@ def gen_piGraph():
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
     plt.title(f"Storage Overview for {user_acc} {get_daydate}")
     #Explode Remaining Space section of Pie Graph
-    explode = (0,0,0.2)
-    ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90, explode=explode)
+    #explode = (0,0,0.2) - removed explode=explode from ax1.pie()
+    ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
@@ -159,19 +160,20 @@ def get_args(chart_choice):
         #[Complete] I need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
         #[Objective] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
         if remainingspace_amount > min_gb_value:
-            print(f"You have {round(remainingspace_amount,2)} GB which is greater than the minimum threshold amount of {round(min_gb_value,2)} GB")    
+            print(f"You have {round(remainingspace_amount,2)} GB which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
             notification.title = "Storage level Safe"
             notification.message = "You have a safe level of remaining storage"
-            notification.icon =  safe_notification_icon
-            notification.send()
+            notification.icon = safe_notification_icon  
+            notification.send()    
         elif remainingspace_amount < min_gb_value:
-            print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum threshold amount of {round(min_gb_value,2)} GB")
+            print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum amount needed of {round(min_gb_value,2)} GB")
             notification_notsafe = Notify()
             notification_notsafe.title = "Storage level Warning"
             notification_notsafe.message = "Warning: Storage levels are low"
             notification_notsafe.icon = warning_notification_icon
             notification_notsafe.send()
+
 
 get_account()  
 get_platform()
