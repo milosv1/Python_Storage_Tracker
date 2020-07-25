@@ -124,7 +124,7 @@ def graph_space():
    
 #generate our piechart 
 def gen_piGraph():
-    usage_labels = 'Storage Capacity', 'Used Space', 'Remaining Space'
+    usage_labels = f'Storage Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Remaining Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
@@ -152,12 +152,12 @@ def get_args(chart_choice):
     elif args.chstorage:
         #[Complete] I need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
         #[Complete] I need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
-        #[Objective] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
+        #[Complete] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
-            notification.title = "Storage level Safe"
-            notification.message = "You have a safe level of remaining storage"
+            notification.title = "Remaining Storage level Safe"
+            notification.message = f"You have {round(remainingspace_amount,2)} GB of remaining storage"
             notification.send()    
         elif remainingspace_amount < min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum amount needed of {round(min_gb_value,2)} GB")
