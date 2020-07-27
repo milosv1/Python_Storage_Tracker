@@ -142,6 +142,7 @@ def get_args(chart_choice):
     parser.add_argument("--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
     parser.add_argument("--piechart")
     parser.add_argument("--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
+    parser.add_argument("--rshistory") #--[Objective]prints recent remainingspace_amount (historical data) + date added.
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}..')
@@ -165,6 +166,8 @@ def get_args(chart_choice):
             notification_notsafe.title = "Remaining Storage level Warning"
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, you have: {round(remainingspace_amount,2)} GB left."
             notification_notsafe.send()
+    elif args.rshistory:
+        print("--rshistory functionality in progress.")        
 
 
 get_account()  
