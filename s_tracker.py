@@ -34,6 +34,7 @@ remainingspace_amount = total_b/gb
 
 #10gb = 10,737,418,240
 minspace_amount = 1024**3*10  
+#note min_gb_value = 10gb
 min_gb_value = minspace_amount/gb
 #print(round(min_gb_value,2))
 
@@ -142,7 +143,6 @@ def get_args(chart_choice):
     parser.add_argument("-b","--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
     parser.add_argument("-p","--piechart")
     parser.add_argument("-cs","--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
-    parser.add_argument("-rsh","--rshistory") #--[Objective]prints recent remainingspace_amount (historical data) + date added.
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
@@ -164,10 +164,12 @@ def get_args(chart_choice):
             print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum amount needed of {round(min_gb_value,2)} GB")
             notification_notsafe = Notify()
             notification_notsafe.title = "Remaining Storage level Warning"
-            notification_notsafe.message = f"Warning: Remaining Storage levels are low, you have: {round(remainingspace_amount,2)} GB left."
+            notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
-    elif args.rshistory:
-        print(f"--{args.rshistory} command in progress.")        
+   
+        
+      
+           
 
 
 get_account()  
