@@ -117,7 +117,7 @@ def graph_space():
    #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
    plt.ylabel('Usage Amount')
    #the title of our graph
-   plt.title(f"Storage Overview for {user_acc} {get_daydate}")
+   plt.title(f"Storage Overview for {user_acc}")
    #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
   
@@ -145,10 +145,10 @@ def get_args(chart_choice):
     parser.add_argument("-rsh","--rshistory") #--[Objective]prints recent remainingspace_amount (historical data) + date added.
     args = parser.parse_args()
     if args.barchart:
-        print(f'Launching {args.barchart}..')
+        print(f'Launching {args.barchart}')
         plt.show(graph_space())
     elif args.piechart:
-        print(f'Launching {args.piechart}..')
+        print(f'Launching {args.piechart}')
         plt.show(gen_piGraph()) 
     elif args.chstorage:
         #[Complete] I need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
