@@ -128,7 +128,7 @@ def gen_piGraph():
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
-    plt.title(f"Storage Overview for {user_acc} {get_daydate}")
+    plt.title(f"Storage Overview for {user_acc}")
     #Explode Remaining Space section of Pie Graph
     #explode = (0,0,0.2) - removed explode=explode from ax1.pie()
     ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
@@ -139,10 +139,10 @@ def gen_piGraph():
 
 def get_args(chart_choice):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
-    parser.add_argument("--piechart")
-    parser.add_argument("--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
-    parser.add_argument("--rshistory") #--[Objective]prints recent remainingspace_amount (historical data) + date added.
+    parser.add_argument("-b","--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
+    parser.add_argument("-p","--piechart")
+    parser.add_argument("-cs","--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
+    parser.add_argument("-rsh","--rshistory") #--[Objective]prints recent remainingspace_amount (historical data) + date added.
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}..')
@@ -167,7 +167,7 @@ def get_args(chart_choice):
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, you have: {round(remainingspace_amount,2)} GB left."
             notification_notsafe.send()
     elif args.rshistory:
-        print("--rshistory functionality in progress.")        
+        print(f"--{args.rshistory} command in progress.")        
 
 
 get_account()  
