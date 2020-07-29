@@ -11,6 +11,7 @@ import psutil
 import argparse
 from notifypy import Notify
 from pathlib import Path
+import warnings
 
 #to gb calc
 gb = 10 ** 9
@@ -51,6 +52,9 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 chart_choice = ''
+
+#ignore warnings - This should fix the MatplotlibDeprecationWarning
+warnings.filterwarnings("ignore", category=UserWarning)
 
 #function to get user account & time accessed
 def get_account():   
@@ -116,7 +120,7 @@ def graph_space():
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
    #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
-   plt.ylabel('Usage Amount')
+   plt.ylabel('Usage Amount (GB)')
    #the title of our graph
    plt.title(f"Storage Overview for {user_acc}")
    #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
@@ -170,8 +174,6 @@ def get_args(chart_choice):
         
       
            
-
-
 get_account()  
 get_platform()
 usageper_core()
