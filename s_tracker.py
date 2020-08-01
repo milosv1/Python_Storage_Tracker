@@ -133,10 +133,10 @@ def gen_piGraph():
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num="Storage Pie Chart")
-    plt.title(f"Storage Overview for {user_acc}")
+    plt.title(f"Storage Overview for {user_acc}" , loc="left")
     #Explode Remaining Space section of Pie Graph
     #explode = (0,0,0.2) - removed explode=explode from ax1.pie()
-    ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=True, startangle=90)
+    ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=False, startangle=90)
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
