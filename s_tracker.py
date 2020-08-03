@@ -183,9 +183,9 @@ def get_args(chart_choice):
             pickle.dump(round(storage_capacity_amount,2), n)
             pickle.dump(round(usedspace_amount,2), n)
         with open(file_name, "rb") as n:    
-            r_a = pickle.load(n)
-            s_a = pickle.load(n)
-            u_a = pickle.load(n)
+            r_a = pickle.load(n) #remaining space 
+            s_a = pickle.load(n) #space free
+            u_a = pickle.load(n) #used space
             print("remaining space:", r_a, "GB")
             print("capacity: ", s_a, "GB")
             print("used space: ", u_a, "GB") 
