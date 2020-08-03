@@ -147,6 +147,7 @@ def get_args(chart_choice):
     parser.add_argument("-b","--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
     parser.add_argument("-p","--piechart")
     parser.add_argument("-cs","--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
+    parser.add_argument("-ss","--save_storage") #save storage + date to RTF file.
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
@@ -170,6 +171,9 @@ def get_args(chart_choice):
             notification_notsafe.title = "Remaining Storage level Warning"
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
+    elif args.save_storage:
+        print("in progress.") #[objective] to save storage data & date to RTF file.
+             
    
         
       
