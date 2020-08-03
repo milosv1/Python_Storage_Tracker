@@ -12,6 +12,8 @@ import argparse
 from notifypy import Notify
 from pathlib import Path
 import warnings
+import pickle #to save our data to a file.
+from datetime import date
 
 #to gb calc
 gb = 10 ** 9
@@ -52,6 +54,8 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 chart_choice = ''
+
+file_name = r"storage.rtf"
 
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -172,8 +176,22 @@ def get_args(chart_choice):
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
     elif args.save_storage:
-        print("in progress.") #[objective] to save storage data & date to RTF file.
-             
+        os.system("clear")
+        print(f"As of {get_daydate}") #[objective] to save storage data & date to RTF file.
+        with open(file_name, "wb") as n:
+            pickle.dump(round(remainingspace_amount,2), n)
+            pickle.dump(round(storage_capacity_amount,2), n)
+            pickle.dump(round(usedspace_amount,2), n)
+        with open(file_name, "rb") as n:    
+            r_a = pickle.load(n)
+            s_a = pickle.load(n)
+            u_a = pickle.load(n)
+            print("remaining space:", r_a, "GB")
+            print("capacity: ", s_a, "GB")
+            print("used space: ", u_a, "GB") 
+              
+            
+         
    
         
       
