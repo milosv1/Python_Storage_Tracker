@@ -55,7 +55,7 @@ per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 chart_choice = ''
 
-file_name = r"storage.rtf"
+file_name = r"storage.txt"
 
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -163,6 +163,7 @@ def get_args(chart_choice):
         #[Complete] I need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
         #[Complete] I need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
         #[Complete] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
+        os.system("clear") #clean terminal screen - show output of comparison.
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB remaining which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
@@ -179,23 +180,20 @@ def get_args(chart_choice):
         os.system("clear")
         print(f"As of {get_daydate}") #[objective] to save storage data & date to RTF file.
         with open(file_name, "wb") as n:
-            pickle.dump(round(remainingspace_amount,2), n)
-            pickle.dump(round(storage_capacity_amount,2), n)
-            pickle.dump(round(usedspace_amount,2), n)
-        with open(file_name, "rb") as n:    
+            pickle.dump(round(remainingspace_amount,2),n)
+            pickle.dump(round(storage_capacity_amount,2),n)
+            pickle.dump(round(usedspace_amount,2),n)
+        with open(file_name, "rb") as n:   
             r_a = pickle.load(n) #remaining space 
             s_a = pickle.load(n) #space free
             u_a = pickle.load(n) #used space
             print("remaining space:", r_a, "GB")
             print("capacity: ", s_a, "GB")
             print("used space: ", u_a, "GB") 
-              
             
-         
-   
-        
-      
-           
+            
+            
+            
 get_account()  
 get_platform()
 usageper_core()
