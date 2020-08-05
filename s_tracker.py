@@ -148,10 +148,11 @@ def gen_piGraph():
 
 def get_args(chart_choice):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-b","--barchart", help="Usage: --barchart barchart, --piechart piechart, --chstorage chstorage")
+    parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
-    parser.add_argument("-cs","--chstorage") #check if remaining storage is at a safe level, if not, show notification. --chstorage is short for checkstorage
-    parser.add_argument("-ss","--save_storage") #save storage + date to RTF file.
+    parser.add_argument("-cs","--chstorage") 
+    parser.add_argument("-ss","--save_storage") 
+    parser.add_argument("-ac","--all_charts")
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
@@ -160,10 +161,6 @@ def get_args(chart_choice):
         print(f'Launching {args.piechart}')
         plt.show(gen_piGraph()) 
     elif args.chstorage:
-        #[Complete] I need to figure out how we can check if the amount of remaining storage is LESS than or equal to 10GB.
-        #[Complete] I need to get minspace_amount to readable value, so we can compare our two values, remainingspace_amount & minspace_amount.
-        #[Complete] I need to implement notification to warn user if remainingspace_amount is less than the min_gb_value.
-        os.system("clear") #clean terminal screen - show output of comparison.
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB remaining which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
@@ -190,7 +187,10 @@ def get_args(chart_choice):
             print("remaining space:", r_a, "GB")
             print("capacity: ", s_a, "GB")
             print("used space: ", u_a, "GB") 
-            
+    elif args.all_charts:
+        print(f"Launching --{args.all_charts}")
+        plt.show(graph_space())
+        plt.show(gen_piGraph())        
             
             
             
