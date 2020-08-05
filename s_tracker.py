@@ -1,18 +1,18 @@
-import os #operating system
-import sys #system
-import datetime #get date and time
-import shutil #allows us to work with files 
-import matplotlib.pyplot as plt; plt.rcdefaults() #allows us to implement graphs and charts
-import numpy as np #numpy- allows us to work with maths
-import mplcursors # this is a new import allows us to interact with bar chart 
+import os 
+import sys 
+import datetime 
+import shutil 
+import matplotlib.pyplot as plt; plt.rcdefaults() 
+import numpy as np 
+import mplcursors 
 from os import path
-import platform #get platform info of user
+import platform 
 import psutil
 import argparse
 from notifypy import Notify
 from pathlib import Path
 import warnings
-import pickle #to save our data to a file.
+import pickle 
 from datetime import date
 
 #to gb calc
