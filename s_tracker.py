@@ -188,7 +188,7 @@ def get_args(chart_choice):
             print("capacity: ", s_a, "GB")
             print("used space: ", u_a, "GB") 
     elif args.all_charts:
-        print(f"Launching --{args.all_charts}")
+        print("Launching --all_charts") #test commit on sublime editor
         plt.show(graph_space())
         plt.show(gen_piGraph())        
             
