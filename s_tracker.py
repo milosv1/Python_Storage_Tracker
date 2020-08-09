@@ -64,7 +64,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 def get_account():   
     time_acc = datetime.datetime.now()
     print(f"User: {user_acc}")
-    print(f"Last accessed: {time_acc}")      
+    print(f"Last login: {time_acc}")      
 
 
 #get platform related info 
@@ -191,7 +191,7 @@ def get_args(chart_choice):
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())        
-            
+          
             
             
 get_account()  
