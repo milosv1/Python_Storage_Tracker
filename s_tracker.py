@@ -14,6 +14,7 @@ from pathlib import Path
 import warnings
 import pickle 
 from datetime import date
+import logging
 
 #to gb calc
 gb = 10 ** 9
@@ -146,7 +147,7 @@ def gen_piGraph():
     mplcursors.cursor()
    
 
-def get_args(chart_choice):
+def get_args(): #chart_choice
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
@@ -193,8 +194,8 @@ def get_args(chart_choice):
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.recent_commands:
-        print("Testing:", args) #[Objective] Adding this here, need to figure out how to take in the commands, then save them.
-       
+         print("test")        
+
 
 
 
@@ -208,7 +209,7 @@ usageper_core()
 get_capacity(my_path)
 get_usedSpace(my_path)
 get_TotalSpace(my_path)
-get_args(chart_choice)
+get_args() #chart_choice
 graph_space()
 gen_piGraph()
 
