@@ -153,6 +153,7 @@ def get_args(chart_choice):
     parser.add_argument("-cs","--chstorage") 
     parser.add_argument("-ss","--save_storage") 
     parser.add_argument("-ac","--all_charts")
+    parser.add_argument("-rc", "--recent_commands")
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
@@ -190,7 +191,10 @@ def get_args(chart_choice):
     elif args.all_charts:
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
-        plt.show(gen_piGraph())        
+        plt.show(gen_piGraph())
+    elif args.recent_commands:
+        print(f"--recent_comments in progress")
+
           
             
             
