@@ -193,7 +193,11 @@ def get_args(chart_choice):
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.recent_commands:
-        print(f"--recent_comments in progress")
+        print("Testing:", args) #[Objective] Adding this here, need to figure out how to take in the commands, then save them.
+       
+
+
+
 
           
             
