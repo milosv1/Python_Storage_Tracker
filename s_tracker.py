@@ -130,11 +130,7 @@ def graph_space():
    plt.title(f"Storage Overview for {user_acc}")
    #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
-   #portion below needs work - 
-   #legend needs to show all storage data 
-   plt.plot()
-   plt.legend(usage_types,loc=1)
-   plt.show()
+   
    
    
    
