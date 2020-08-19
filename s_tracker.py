@@ -15,6 +15,8 @@ import warnings
 import pickle 
 from datetime import date
 import logging
+import calendar as c
+from time import gmtime, strftime
 
 #to gb calc
 gb = 10 ** 9
@@ -63,9 +65,15 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 #function to get user account & time accessed
 def get_account():   
-    time_acc = datetime.datetime.now()
+    #time_acc = datetime.datetime.now()
+    t = date.today()
+    m_d = date.today()
+    day = c.day_name[m_d.weekday()] #return the day of week
+    t_n = strftime("%H:%M:%S",gmtime())
+    time_now = t.strftime(f"{day} %B %d")
     print(f"User: {user_acc}")
-    print(f"Last login: {time_acc}")      
+    print(f"Last login: ", time_now, t_n)      
+    
 
 
 #get platform related info 
