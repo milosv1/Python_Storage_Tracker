@@ -58,8 +58,6 @@ per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
 chart_choice = ''
 
-file_name = r"storage.txt"
-
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -166,8 +164,7 @@ def get_args(): #chart_choice
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
-    parser.add_argument("-cs","--chstorage") 
-    parser.add_argument("-ss","--save_storage") 
+    parser.add_argument("-cs","--chstorage")  
     parser.add_argument("-ac","--all_charts")
     args = parser.parse_args()
     if args.barchart:
@@ -189,27 +186,11 @@ def get_args(): #chart_choice
             notification_notsafe.title = "Remaining Storage level Warning"
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
-    elif args.save_storage:
-        os.system("clear")
-        print(f"As of {get_daydate}") #[objective] to save storage data & date to RTF file.
-        with open(file_name, "wb") as n:
-            pickle.dump(round(remainingspace_amount,2),n)
-            pickle.dump(round(storage_capacity_amount,2),n)
-            pickle.dump(round(usedspace_amount,2),n)
-        with open(file_name, "rb") as n:   
-            r_a = pickle.load(n) #remaining space 
-            s_a = pickle.load(n) #space free
-            u_a = pickle.load(n) #used space
-            print("remaining space:", r_a, "GB")
-            print("capacity: ", s_a, "GB")
-            print("used space: ", u_a, "GB") 
     elif args.all_charts:
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
    
-
-
 
 
 get_account()  
