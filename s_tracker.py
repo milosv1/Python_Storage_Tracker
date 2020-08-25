@@ -61,7 +61,6 @@ chart_choice = ''
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
-#function to get user account & time accessed
 def get_account():   
     #time_acc = datetime.datetime.now()
     t = date.today()
@@ -73,8 +72,7 @@ def get_account():
     print(f"Last login: ", time_now, t_n)      
     
 
-
-#get platform related info 
+ 
 def get_platform():
     print(f"System Name: {system_name}")
     print(f"Platform: {user_platform}")
@@ -83,6 +81,7 @@ def get_platform():
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
     print(f'Total Core Count: {totalcore_count}')
+
 
 
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
@@ -94,11 +93,13 @@ def get_size(bytes, suffix="B"):
         bytes /= fact
 
 
+
 # % of usage per core & total CPU usage %
 def usageper_core():
     for i, percentage in enumerate(per_cpu):
       print(f'Core {i}: {percentage}%')
     print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
+
 
 
 #print capacity in Bytes
@@ -107,10 +108,12 @@ def get_capacity(my_path):
     print('Capacity: {:6.2f} GB'.format(free_b/gb))
     
 
+
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #print(f"Used Space: {used_b} \n")
       print('Used: {:6.2f} GB '.format(used_b/gb) )
+
 
 
 #print remaining in Bytes
@@ -124,7 +127,6 @@ def get_TotalSpace(my_path):
 
 
 
-#show space in bar chart - also interactive
 def graph_space():
    bargraphwin_title = plt.figure(f"Storage Bar Chart {user_acc}")  
    #here i have given what needs to be put in the graph, what we are graphing
@@ -144,8 +146,6 @@ def graph_space():
    
    
    
-   
-#generate our piechart 
 def gen_piGraph():
     usage_labels = f'Storage Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Remaining Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
@@ -159,6 +159,7 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
    
+
 
 def get_args(): #chart_choice
     parser = argparse.ArgumentParser()
