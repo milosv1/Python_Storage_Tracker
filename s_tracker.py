@@ -120,7 +120,7 @@ def get_usedSpace(my_path):
 def get_TotalSpace(my_path):
     #print(f"Total Space: {total_b} \n")
    # print('Remaining: {:6.2f} GB'.format(total_b/gb))
-    if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount.
+    if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'.
         print('*Remaining: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Remaining space.', '\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Remaining: {:6.2f} GB'.format(total_b/gb))    
