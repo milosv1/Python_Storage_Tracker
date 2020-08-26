@@ -67,7 +67,7 @@ def get_account():
     m_d = date.today()
     day = c.day_name[m_d.weekday()] #return the day of week
     t_n = strftime("%H:%M:%S",gmtime())
-    time_now = t.strftime(f"{day} %B %d")
+    time_now = t.strftime(f"{day} %B %d,")
     print(f"User: {user_acc}")
     print(f"Last login: ", time_now, t_n)      
     
