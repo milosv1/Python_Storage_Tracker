@@ -167,6 +167,7 @@ def get_args(): #chart_choice
     parser.add_argument("-p","--piechart")
     parser.add_argument("-cs","--chstorage")  
     parser.add_argument("-ac","--all_charts")
+    parser.add_argument("-rc","--recent_commands")
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
@@ -191,6 +192,8 @@ def get_args(): #chart_choice
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
+    elif args.recent_commands: #save recent commands & date, be able to go through them via arrow keys.
+        print(f"{args.recent_commands}, is in progress.")    
    
 
 
