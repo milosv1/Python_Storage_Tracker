@@ -193,7 +193,13 @@ def get_args(): #chart_choice
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.recent_commands: #save recent commands & date, be able to go through them via arrow keys.
-        print(f"{args.recent_commands}, is in progress.")    
+        print(f"{args.recent_commands}, is in progress.")   
+        rc_list = [] #place to hold commands
+        print(f"In recent command list: {rc_list}")
+
+
+
+
    
 
 
