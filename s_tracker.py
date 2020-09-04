@@ -161,7 +161,7 @@ def gen_piGraph():
    
 
 
-def get_args(): #chart_choice
+def get_args(): #chart_choice - this was a param at one point, but removed since not needed.
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
