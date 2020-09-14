@@ -72,7 +72,6 @@ def get_account():
     print(f"Last login: ", time_now, t_n)      
     
 
- 
 def get_platform():
     print(f"System Name: {system_name}")
     print(f"Platform: {user_platform}")
@@ -81,7 +80,6 @@ def get_platform():
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
     print(f'Total Core Count: {totalcore_count}')
-
 
 
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
@@ -93,13 +91,11 @@ def get_size(bytes, suffix="B"):
         bytes /= fact
 
 
-
 # % of usage per core & total CPU usage %
 def usageper_core():
     for i, percentage in enumerate(per_cpu):
       print(f'Core {i}: {percentage}%')
     print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
-
 
 
 #print capacity in Bytes
@@ -108,12 +104,10 @@ def get_capacity(my_path):
     print('Capacity: {:6.2f} GB'.format(free_b/gb))
     
 
-
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #print(f"Used Space: {used_b} \n")
       print('Used: {:6.2f} GB'.format(used_b/gb) )
-
 
 
 #print remaining in Bytes
@@ -124,7 +118,6 @@ def get_TotalSpace(my_path):
         print('*Remaining: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Remaining space.', '\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Remaining: {:6.2f} GB'.format(total_b/gb))    
-
 
 
 def graph_space():
@@ -145,7 +138,6 @@ def graph_space():
    mplcursors.cursor()
    
    
-   
 def gen_piGraph():
     usage_labels = f'Storage Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Remaining Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
@@ -159,7 +151,6 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
    
-
 
 def get_args(): #chart_choice - this was a param at one point, but removed since not needed.
     parser = argparse.ArgumentParser()
@@ -201,8 +192,6 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
 
 
    
-
-
 get_account()  
 get_platform()
 usageper_core()
