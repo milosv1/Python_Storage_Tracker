@@ -40,6 +40,7 @@ remainingspace_amount = total_b/gb
 
 #10gb = 10,737,418,240
 minspace_amount = 1024**3*10  
+
 #note min_gb_value = 10gb
 min_gb_value = minspace_amount/gb
 #print(round(min_gb_value,2))
@@ -189,7 +190,14 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         rc_list = [] #place to hold commands
         print(f"In recent command list: {rc_list}")
     elif args.change_threshold:
+        ################################################################ this section below needs more work, does not work as expected at the moment.was producing memoryError.
         print(f"{args.change_threshold}, in progress")
+        print(f"Current Threshold: {round(min_gb_value,2)} GB")
+        get_gb = input("What would you like to set your threshold to? ")
+        ten = get_gb
+        new_t = 1024**3*ten
+        print(f"new threshold: {new_t} GB")
+        ################################################################
 
 
 
