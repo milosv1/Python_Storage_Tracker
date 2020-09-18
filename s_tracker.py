@@ -188,7 +188,8 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         print(f"{args.recent_commands}, is in progress.")   
         rc_list = [] #place to hold commands
         print(f"In recent command list: {rc_list}")
-
+    elif args.change_threshold:
+        print(f"{args.change_threshold}, in progress")
 
 
 
