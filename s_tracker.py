@@ -159,6 +159,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser.add_argument("-cs","--chstorage")  
     parser.add_argument("-ac","--all_charts")
     parser.add_argument("-rc","--recent_commands")
+    parser.add_argument("-ct","--change_threshold") #can change threshold from 10gb to whatever they wish.
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
