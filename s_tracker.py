@@ -157,9 +157,8 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
-    parser.add_argument("-cs","--chstorage")  
+    parser.add_argument("-cs","--chstorage")  #cs = check storage with notification.
     parser.add_argument("-ac","--all_charts")
-    parser.add_argument("-rc","--recent_commands")
     parser.add_argument("-ct","--change_threshold") #can change threshold from 10gb to whatever they wish.
     args = parser.parse_args()
     if args.barchart:
@@ -182,13 +181,10 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
     elif args.all_charts:
+        os.system("cls")
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
-    elif args.recent_commands: #save recent commands & date, be able to go through them via arrow keys.
-        print(f"{args.recent_commands}, is in progress.")   
-        rc_list = [] #place to hold commands
-        print(f"In recent command list: {rc_list}")
     elif args.change_threshold:
         ################################################################ In progress.
         os.system("cls")
