@@ -161,12 +161,15 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser.add_argument("-ac","--all_charts")
     args = parser.parse_args()
     if args.barchart:
-        print(f'Launching {args.barchart}')
+        print(" ")
+        print(f'Launching --{args.barchart}')
         plt.show(graph_space())
     elif args.piechart:
-        print(f'Launching {args.piechart}')
+        print(" ")
+        print(f'Launching --{args.piechart}')
         plt.show(gen_piGraph()) 
     elif args.chstorage:
+        print(" ")
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB remaining which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
@@ -180,7 +183,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
             notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
     elif args.all_charts:
-        os.system("cls")
+        print(" ")
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
