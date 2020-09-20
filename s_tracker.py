@@ -159,7 +159,6 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser.add_argument("-p","--piechart")
     parser.add_argument("-cs","--chstorage")  #cs = check storage with notification.
     parser.add_argument("-ac","--all_charts")
-    parser.add_argument("-ct","--change_threshold") #can change threshold from 10gb to whatever they wish.
     args = parser.parse_args()
     if args.barchart:
         print(f'Launching {args.barchart}')
@@ -185,11 +184,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
-    elif args.change_threshold:
-        ################################################################ In progress.
-        os.system("cls")
-        print(f"{args.change_threshold}, in progress")
-        ################################################################
+   
 
 #new line test.
 print(" ")
