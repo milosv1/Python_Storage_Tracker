@@ -186,7 +186,6 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         plt.show(gen_piGraph())
    
 
-#new line test.
 print(" ")
 get_account()  
 get_platform()
