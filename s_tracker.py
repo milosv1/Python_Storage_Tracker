@@ -17,6 +17,7 @@ from datetime import date
 import logging
 import calendar as c
 from time import gmtime, strftime
+import time
 
 #to gb calc
 gb = 10 ** 9
@@ -190,13 +191,24 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
    
 
 print(" ")
-get_account()  
-get_platform()
-usageper_core()
-get_capacity(my_path)
-get_usedSpace(my_path)
-get_TotalSpace(my_path)
-get_args() #chart_choice
-graph_space()
-gen_piGraph()
+background_condition = 0
+while background_condition == 0:
+    t_n_on_update = strftime("%H:%M:%S",gmtime())
+    os.system("cls") #clearing terminal screen, so every 100 seconds new data will be displayed in same postion.
+    get_account()  
+    get_platform()
+    usageper_core()
+    get_capacity(my_path)
+    get_usedSpace(my_path)
+    get_TotalSpace(my_path)
+    get_args() #chart_choice
+    graph_space()
+    gen_piGraph()
+    print(" ")
+    print(f"*Updated on: {t_n_on_update}")
+    time.sleep(100)    
+
+    
+     
+
 
