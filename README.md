@@ -7,4 +7,4 @@ Implemented comparison of remainingspace_amount and minspace_amount, when the --
 
 14/09/2020 - Recently i've made changes to the look of the terminal look, especially the 'last login: ... ' section, this was inspired by the Terminal of the Mac OS.
 
-As of 23/09/2020 - I've added a while loop under def functions to run the functions in the background, the command line tool updates every 100 seconds as set on time.sleep(100), the condition also has the os.system("cls") which simply cleans the terminal screen and replaces it with new information. To end the process you can simply CTRL + C to set off KeyboardInterrupt, this feature will be a work in progress!
+As of 23/09/2020 - I've added a while loop under def functions to run the command line tool in the background, the command line tool updates every 100 seconds as set on time.sleep(100), the condition also has the os.system("cls") which simply cleans the terminal screen and replaces it with new information. To end the process you can simply CTRL + C to set off KeyboardInterrupt, this feature will be a work in progress!
