@@ -188,12 +188,12 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
+        
    
 
 
 print(" ")
 t_n_on_update = strftime("%H:%M:%S",gmtime())
-os.system("cls") 
 get_account()  
 get_platform()
 usageper_core()
