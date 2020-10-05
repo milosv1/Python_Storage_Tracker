@@ -191,9 +191,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         
    
 
-
 print(" ")
-t_n_on_update = strftime("%H:%M:%S",gmtime())
 get_account()  
 get_platform()
 usageper_core()
@@ -204,7 +202,7 @@ get_args() #chart_choice
 graph_space()
 gen_piGraph()
 print(" ")
-print(f"*Updated on: {t_n_on_update}")
+
 
      
 
