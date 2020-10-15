@@ -109,7 +109,7 @@ def get_capacity(my_path):
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #print(f"Used Space: {used_b} \n")
-      print('Used: {:6.2f} GB'.format(used_b/gb) )
+      print('Used space: {:6.2f} GB'.format(used_b/gb) )
 
 
 #print remaining in Bytes
@@ -117,15 +117,15 @@ def get_TotalSpace(my_path):
     #print(f"Total Space: {total_b} \n")
    # print('Remaining: {:6.2f} GB'.format(total_b/gb))
     if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'.
-        print('*Remaining: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Remaining space.', '\n')
+        print('*Free space: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.', '\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
-        print('Remaining: {:6.2f} GB'.format(total_b/gb))    
+        print('Free space: {:6.2f} GB'.format(total_b/gb))    
 
 
 def graph_space():
    bargraphwin_title = plt.figure(f"Storage Bar Chart {user_acc}")  
    #here i have given what needs to be put in the graph, what we are graphing
-   usage_types = (f'Storage Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Remaining Space \n {round(remainingspace_amount,2)} GB')
+   usage_types = (f'Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Free Space \n {round(remainingspace_amount,2)} GB')
    #arange our space types 
    y_pos = np.arange(len(usage_types))
    #a list of our usage_points, in the list individually round them off to the 2nd decimal  
@@ -141,7 +141,7 @@ def graph_space():
    
    
 def gen_piGraph():
-    usage_labels = f'Storage Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Remaining Space {round(remainingspace_amount,2)} GB'
+    usage_labels = f'Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Free Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num=f"Storage Pie Chart {user_acc}")
@@ -174,14 +174,14 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB remaining which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
-            notification.title = "Remaining Storage level Safe"
-            notification.message = f"You have {round(remainingspace_amount,2)} GB of remaining storage available"
+            notification.title = "Free Storage levels Safe"
+            notification.message = f"You have {round(remainingspace_amount,2)} GB of Free storage available"
             notification.send()    
         elif remainingspace_amount < min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum amount needed of {round(min_gb_value,2)} GB")
             notification_notsafe = Notify()
-            notification_notsafe.title = "Remaining Storage level Warning"
-            notification_notsafe.message = f"Warning: Remaining Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
+            notification_notsafe.title = "Free Storage levels Low"
+            notification_notsafe.message = f"Warning: Free Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
     elif args.all_charts:
         print(" ")
