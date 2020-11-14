@@ -34,12 +34,6 @@ my_path = '/'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
-#////////////////
-#print(f"test 1: {total_b}")
-#print(f"Test 2: {used_b}")
-#print(f"Test 3: {free_b}")
-#////////////////
-
 #get capacity - free space - used space
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
