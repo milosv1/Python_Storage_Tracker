@@ -201,7 +201,7 @@ usageper_core()
 get_capacity(my_path)
 get_usedSpace(my_path)
 get_TotalSpace(my_path)
-get_args() #chart_choice
+get_args()
 graph_space()
 gen_piGraph()
 print(" ")
