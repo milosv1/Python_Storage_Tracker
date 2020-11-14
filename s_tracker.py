@@ -34,6 +34,12 @@ my_path = '/'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
+#////////////////
+#print(f"test 1: {total_b}")
+#print(f"Test 2: {used_b}")
+#print(f"Test 3: {free_b}")
+#////////////////
+
 #get capacity - free space - used space
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
@@ -104,14 +110,14 @@ def usageper_core():
 def get_capacity(my_path):    
     #we should look at adding the larger format very similar to the windows format of space.
     #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
-    print('Capacity: {:6.2f} GB'.format(free_b/gb))
+    print('Capacity: {:6.2f} GB'.format(free_b/gb),f"| {free_b} Bytes")
     
 
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #we should look at adding the larger format very similar to the windows format of space.
       #print(f"Used Space: {used_b} \n")
-      print('Used space: {:6.2f} GB'.format(used_b/gb) )
+      print('Used space: {:6.2f} GB'.format(used_b/gb), f"| {used_b} Bytes" )
 
 
 #print remaining in Bytes
@@ -120,9 +126,9 @@ def get_TotalSpace(my_path):
     #we should look at adding the larger format very similar to the windows format of space.
    # print('Remaining: {:6.2f} GB'.format(total_b/gb))
     if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'.
-        print('*Free space: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.', '\n')
+        print('*Free space: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.', f"| {total_b} Bytes" ,'\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
-        print('Free space: {:6.2f} GB'.format(total_b/gb))    
+        print('Free space: {:6.2f} GB'.format(total_b/gb), f"| {total_b} Bytes")    
 
 
 def graph_space():
