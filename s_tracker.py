@@ -110,16 +110,12 @@ def get_capacity(my_path):
 #print used space in Bytes    
 def get_usedSpace(my_path):
       #we should look at adding the larger format very similar to the windows format of space.
-      #print(f"Used Space: {used_b} \n")
       print('Used space: {:6.2f} GB'.format(used_b/gb), "| {:,} bytes".format(used_b) )
 
 
 #print remaining in Bytes
 def get_TotalSpace(my_path):
-    #print(f"Total Space: {total_b} \n")
-    #we should look at adding the larger format very similar to the windows format of space.
-   # print('Remaining: {:6.2f} GB'.format(total_b/gb))
-    if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'////// ->  f"| {total_b} bytes. HERE
+    if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'
         print('*Free space: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.', "| {:,} bytes".format(total_b) ,'\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b))    
@@ -127,7 +123,7 @@ def get_TotalSpace(my_path):
 
 def graph_space():
    bargraphwin_title = plt.figure(f"Storage Bar Chart {user_acc}")  
-   #here i have given what needs to be put in the graph, what we are graphing
+   #here I have given what needs to be put in the graph, what we are graphing
    usage_types = (f'Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Free Space \n {round(remainingspace_amount,2)} GB')
    #arange our space types 
    y_pos = np.arange(len(usage_types))
