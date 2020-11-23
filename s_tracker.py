@@ -63,6 +63,7 @@ chart_choice = ''
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
+
 def get_account():   
     #time_acc = datetime.datetime.now()
     t = date.today()
@@ -108,7 +109,6 @@ def get_usedSpace(my_path):
       print('Used space: {:6.2f} GB'.format(used_b/gb), "| {:,} bytes".format(used_b) )
 
 
-#print remaining in Bytes
 def get_TotalSpace(my_path):
     if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'
         print('*Free space: {:6.2f} GB'.format(total_b/gb), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.', "| {:,} bytes".format(total_b) ,'\n')
@@ -184,7 +184,6 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         plt.show(gen_piGraph())
         
    
-
 print(" ")
 get_account()  
 get_platform()
@@ -195,7 +194,6 @@ get_TotalSpace(my_path)
 get_args()
 graph_space()
 gen_piGraph()
-print(" ")
 
 
      
