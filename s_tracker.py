@@ -100,16 +100,11 @@ def usageper_core():
     print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
 
 
-#print capacity in Bytes
 def get_capacity(my_path):    
-    #we should look at adding the larger format very similar to the windows format of space.
-    #print(f'Capacity: {:6.2f} GB \n'.format(free_b/gb))
     print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b))
     
-
-#print used space in Bytes    
+  
 def get_usedSpace(my_path):
-      #we should look at adding the larger format very similar to the windows format of space.
       print('Used space: {:6.2f} GB'.format(used_b/gb), "| {:,} bytes".format(used_b) )
 
 
