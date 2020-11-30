@@ -76,7 +76,7 @@ def get_account():
     
 
 def get_platform():
-    print(f"System Name: {system_name}")
+    print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
@@ -199,7 +199,7 @@ get_TotalSpace(my_path)
 get_args()
 graph_space()
 gen_piGraph()
-
+print(" ")
 
 
      
