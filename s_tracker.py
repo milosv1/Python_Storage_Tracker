@@ -146,6 +146,10 @@ def gen_piGraph():
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
+
+
+def get_network():
+    print("Connection: #####")
    
 
 def get_args(): #chart_choice - this was a param at one point, but removed since not needed.
@@ -185,7 +189,8 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         
    
 print(" ")
-get_account()  
+get_account() 
+get_network() 
 get_platform()
 usageper_core()
 get_capacity(my_path)
@@ -194,6 +199,7 @@ get_TotalSpace(my_path)
 get_args()
 graph_space()
 gen_piGraph()
+
 
 
      
