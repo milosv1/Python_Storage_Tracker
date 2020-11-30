@@ -18,6 +18,7 @@ import logging
 import calendar as c
 from time import gmtime, strftime
 import time
+import cpuinfo
 
 #to gb calc
 gb = 10 ** 9
@@ -58,6 +59,8 @@ bytes_recv = psutil.net_io_counters().bytes_recv
 
 per_cpu = psutil.cpu_percent(percpu=True, interval=1)
 
+platform_pro = cpuinfo.get_cpu_info()['brand_raw']
+
 chart_choice = ''
 
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
@@ -78,7 +81,8 @@ def get_account():
 def get_platform():
     print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
-    print(f"Platform Release: {user_platform_rel} \n")
+    print(f"Platform Release: {user_platform_rel}")
+    print(f"Processor: {platform_pro} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
@@ -147,7 +151,7 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
-
+#get users connection
 def get_network():
     print("Connection: #####")
    
