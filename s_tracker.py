@@ -151,9 +151,9 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
-#get users connection
 def get_network():
-    print("Connection: #####")
+    #gets user connection info
+    print("Connection: ....")
    
 
 def get_args(): #chart_choice - this was a param at one point, but removed since not needed.
