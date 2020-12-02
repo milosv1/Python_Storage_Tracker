@@ -174,16 +174,16 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     elif args.chstorage:
         print(" ")
         if remainingspace_amount > min_gb_value:
-            print(f"You have {round(remainingspace_amount,2)} GB remaining which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
+            print(f"You have {round(remainingspace_amount,2)} GB of Free space remaining which is greater than the minimum amount of {round(min_gb_value,2)} GB.")    
             notification = Notify()
             notification.title = "Free space levels Safe"
-            notification.message = f"You have {round(remainingspace_amount,2)} GB of Free space available"
+            notification.message = f"You have {round(remainingspace_amount,2)} GB of Free space available."
             notification.send()    
         elif remainingspace_amount < min_gb_value:
-            print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum amount needed of {round(min_gb_value,2)} GB")
+            print(f"You have {round(remainingspace_amount,2)} GB of Free space remaining, Which is less than the minimum amount of {round(min_gb_value,2)} GB.")
             notification_notsafe = Notify()
             notification_notsafe.title = "Free space levels Low"
-            notification_notsafe.message = f"Warning: Free space levels are low, You have {round(remainingspace_amount,2)} GB remaining."
+            notification_notsafe.message = f"[Warning]: Free space levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
     elif args.all_charts:
         print(" ")
