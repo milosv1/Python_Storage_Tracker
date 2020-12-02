@@ -151,10 +151,6 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
-def get_network():
-    #gets user connection info
-    print("Connection: ....")
-   
 
 def get_args(): #chart_choice - this was a param at one point, but removed since not needed.
     parser = argparse.ArgumentParser()
@@ -194,7 +190,6 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
    
 print("")
 get_account() 
-get_network() 
 get_platform()
 usageper_core()
 get_capacity(my_path)
