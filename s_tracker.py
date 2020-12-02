@@ -176,14 +176,14 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         if remainingspace_amount > min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB remaining which is greater than the minimum amount needed of {round(min_gb_value,2)} GB")    
             notification = Notify()
-            notification.title = "Free Storage levels Safe"
-            notification.message = f"You have {round(remainingspace_amount,2)} GB of Free storage available"
+            notification.title = "Free space levels Safe"
+            notification.message = f"You have {round(remainingspace_amount,2)} GB of Free space available"
             notification.send()    
         elif remainingspace_amount < min_gb_value:
             print(f"You have {round(remainingspace_amount,2)} GB which is less than the minimum amount needed of {round(min_gb_value,2)} GB")
             notification_notsafe = Notify()
-            notification_notsafe.title = "Free Storage levels Low"
-            notification_notsafe.message = f"Warning: Free Storage levels are low, You have {round(remainingspace_amount,2)} GB remaining."
+            notification_notsafe.title = "Free space levels Low"
+            notification_notsafe.message = f"Warning: Free space levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
     elif args.all_charts:
         print(" ")
@@ -192,7 +192,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         plt.show(gen_piGraph())
         
    
-print(" ")
+print("")
 get_account() 
 get_network() 
 get_platform()
@@ -203,7 +203,7 @@ get_TotalSpace(my_path)
 get_args()
 graph_space()
 gen_piGraph()
-print(" ")
+print("")
 
 
      
