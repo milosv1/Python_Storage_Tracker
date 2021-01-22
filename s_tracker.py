@@ -66,6 +66,11 @@ chart_choice = ''
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
+def greeting():
+    print("Welcome to Py Storage Tracker!")
+    print("This is a project currently being developed by Milos Vuksanovic")
+    print("Feel free to download a copy to use, test etc!")
+    print("Any feedback given is definately appreciated! - Thank you! :-) \n")
 
 def get_account():   
     #time_acc = datetime.datetime.now()
@@ -189,6 +194,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         
    
 print("")
+greeting()
 get_account() 
 get_platform()
 usageper_core()
