@@ -40,6 +40,7 @@ storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
 
+
 #10gb = 10,737,418,240
 minspace_amount = 1024**3*10  
 
@@ -103,15 +104,16 @@ def get_size(bytes, suffix="B"):
         bytes /= fact
 
 
-# % of usage per core & total CPU usage %
+#Get % of usage per core & total CPU usage %
 def usageper_core():
     for i, percentage in enumerate(per_cpu):
       print(f'Core {i}: {percentage}%')
     print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
 
 
+#[TEST IDEA] from {:6.2f} -> {:.2f} (?)
 def get_capacity(my_path):    
-    print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b))
+    print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b)) 
     
   
 def get_usedSpace(my_path):
