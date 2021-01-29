@@ -39,7 +39,7 @@ my_path_D = 'D:\\'
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
 #print('TEST for D: ',shutil.disk_usage(my_path_second))
-free_b_D,used_b_D,total_b_D = shutil.disk_usage(my_path_D)
+free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
 
 #print('D:', shutil.disk_usage(my_path_D))
 
@@ -47,8 +47,6 @@ free_b_D,used_b_D,total_b_D = shutil.disk_usage(my_path_D)
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
-
-#TODO: get capacity - free space - used space: D: 
 
 #10gb = 10,737,418,240
 minspace_amount = 1024**3*10  
@@ -174,6 +172,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser.add_argument("-p","--piechart")
     parser.add_argument("-cs","--chstorage")  #cs = check storage with notification.
     parser.add_argument("-ac","--all_charts")
+    parser.add_argument("-pr","--print")
     args = parser.parse_args()
     if args.barchart:
         print(" ")
@@ -202,8 +201,31 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
+    elif args.print:
+        #TODO: get capacity - free space - used space: D: 
+        #TODO: the outputs below need to be formatted properly.
+        #print('D: Free space {:,}'.format(free_b_D), 'D: Used Space {:,}'.format(used_b_D), 'D: Capacity {:,}'.format(total_b_D))
+        storage_capacity_amount_D = free_b_d/gb
+        usedspace_amount_D = used_b_d/gb
+        remainingspace_amount_D = total_b_d/gb
+        #try to get bytes to Tera format. - only an experiment.
+        to_TB = remainingspace_amount_D/1000000000000
+        print(" ")
+        print('--------------------------------------')
+        print("TEST AREA!")
+        print(shutil.disk_usage(my_path_D))
+        print('D: Total - {:,}'.format(free_b_d))
+        print('D: Used - {:,}'.format(used_b_d))
+        print('D: Free - {:,}'.format(total_b_d))
+        print('--------------------------------------')
+        #print(f'D: Storage Capacity: {round(storage_capacity_amount_D,2)}')
+        #print(f'D: Used Space: {round(usedspace_amount_D,2)}')
+        #print(f'D: Remaining Space: {round(remainingspace_amount_D,2)}')
+        #print("--------------------------------------")
+       # print('Free {0:.3g} TB'.format(remainingspace_amount_D))
         
-   
+
+
 print("")
 greeting()
 get_account() 
@@ -216,8 +238,3 @@ get_args()
 graph_space()
 gen_piGraph()
 print("")
-
-
-     
-
-
