@@ -30,16 +30,25 @@ get_daydate = datetime.datetime.now()
 
 system_name = platform.node()
 
-#root directory
+#root directory for C:
 my_path = '/'
+
+#this should be for D:
+my_path_D = 'D:\\'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
-#get capacity - free space - used space
+#print('TEST for D: ',shutil.disk_usage(my_path_second))
+free_b_D,used_b_D,total_b_D = shutil.disk_usage(my_path_D)
+
+#print('D:', shutil.disk_usage(my_path_D))
+
+#get capacity - free space - used space: C:
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
 
+#TODO: get capacity - free space - used space: D: 
 
 #10gb = 10,737,418,240
 minspace_amount = 1024**3*10  
