@@ -172,7 +172,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser.add_argument("-p","--piechart")
     parser.add_argument("-cs","--chstorage")  #cs = check storage with notification.
     parser.add_argument("-ac","--all_charts")
-    parser.add_argument("-pr","--print")
+    parser.add_argument("-od","--other_drives") #show storage info of other drives.
     args = parser.parse_args()
     if args.barchart:
         print(" ")
@@ -201,7 +201,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
-    elif args.print:
+    elif args.other_drives:
         #TODO: get capacity - free space - used space: D: 
         #TODO: the outputs below need to be formatted properly.
         #print('D: Free space {:,}'.format(free_b_D), 'D: Used Space {:,}'.format(used_b_D), 'D: Capacity {:,}'.format(total_b_D))
