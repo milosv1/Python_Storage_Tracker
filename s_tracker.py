@@ -126,7 +126,7 @@ def get_capacity(my_path):
     
   
 def get_usedSpace(my_path):
-      print('Used space: {:6.2f} GB'.format(used_b/gb), "| {:,} bytes".format(used_b) )
+      print('Used space: {:6.2f} GB'.format(used_b/gb), "| {:,} bytes".format(used_b))
 
 
 def get_TotalSpace(my_path):
@@ -233,11 +233,10 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         for partition in partitions:
             found_partition+=1
             partition_list.append(partition.device)
-            #len(partition_list)
-            print(" ")
+            print("")
         if len(partition_list) > 1:
-            print("More than two drives?: ", True)
-            print("Drive List: ", len(partition_list))
+            print("More than one drive?: ", True)
+            print("Drives in List: ", len(partition_list))
             print(f"Found: {partition_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")   
