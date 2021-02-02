@@ -74,11 +74,13 @@ chart_choice = ''
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
+
 def greeting():
     print("Welcome to Py Storage Tracker!")
     print("This is a project currently being developed by Milos Vuksanovic")
     print("Feel free to download a copy to use, test etc!")
     print("Any feedback given is definately appreciated! - Thank you! :-) \n")
+    
 
 def get_account():   
     #time_acc = datetime.datetime.now()
@@ -95,8 +97,7 @@ def get_platform():
     print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel}")
-    print(f"Processor: {platform_pro}")
-    print(f"Drives Available: Needs work \n")
+    print(f"Processor: {platform_pro} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
@@ -174,6 +175,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
     parser.add_argument("-cs","--chstorage")  #cs = check storage with notification.
     parser.add_argument("-ac","--all_charts")
     parser.add_argument("-od","--other_drives") #show storage info of other drives.
+    parser.add_argument("-dc","--drive_count") #counts drives 
     args = parser.parse_args()
     if args.barchart:
         print(" ")
@@ -224,11 +226,27 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         #print(f'D: Remaining Space: {round(remainingspace_amount_D,2)}')
         #print("--------------------------------------")
         #print('Free {0:.3g} TB'.format(remainingspace_amount_D))
-        
+    elif args.drive_count:
+        found_partition = 0
+        partition_list = []
+        partitions = psutil.disk_partitions()
+        for partition in partitions:
+            found_partition+=1
+            partition_list.append(partition.device)
+            #len(partition_list)
+            print(" ")
+        if len(partition_list) > 1:
+            print("More than two drives?: ", True)
+            print("Drive List: ", len(partition_list))
+            print(f"Found: {partition_list}")
+        elif len(partition_list) < 2:
+            print("There is only one drive.")   
+
 
 
 print("")
 greeting()
+#list_drives()
 get_account() 
 get_platform()
 usageper_core()
