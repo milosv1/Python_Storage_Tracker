@@ -33,13 +33,11 @@ system_name = platform.node()
 #root directory for C:
 my_path = '/'
 
-#this should be for D:
-my_path_D = 'D:\\'
+
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
-#print('TEST for D: ',shutil.disk_usage(my_path_second))
-free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
+
 
 #print('D:', shutil.disk_usage(my_path_D))
 
@@ -205,27 +203,35 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.other_drives:
-        #TODO: get capacity - free space - used space: D: 
-        #TODO: the outputs below need to be formatted properly.
-        #print('D: Free space {:,}'.format(free_b_D), 'D: Used Space {:,}'.format(used_b_D), 'D: Capacity {:,}'.format(total_b_D))
-        storage_capacity_amount_D = free_b_d/gb
-        usedspace_amount_D = used_b_d/gb
-        remainingspace_amount_D = total_b_d/gb
-        #try to get bytes to Tera format. - only an experiment.
-        to_TB = remainingspace_amount_D/1000000000000
-        print(" ")
-        print('--------------------------------------')
-        print("Testing area for other drives.")
-        #print(shutil.disk_usage(my_path_D))
-        print('D: Total - {:,} bytes'.format(free_b_d))
-        print('D: Used - {:,} bytes'.format(used_b_d))
-        print('D: Free - {:,} bytes'.format(total_b_d))
-        print('--------------------------------------')
-        #print(f'D: Storage Capacity: {round(storage_capacity_amount_D,2)}')
-        #print(f'D: Used Space: {round(usedspace_amount_D,2)}')
-        #print(f'D: Remaining Space: {round(remainingspace_amount_D,2)}')
-        #print("--------------------------------------")
-        #print('Free {0:.3g} TB'.format(remainingspace_amount_D))
+        #this should be for D: TEST
+        my_path_D = 'D:\\'
+        if os.path.isdir(my_path_D):
+            print("Another drive found!")
+            #print('TEST for D: ',shutil.disk_usage(my_path_second))
+            free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
+            #TODO: get capacity - free space - used space: D: 
+            #TODO: the outputs below need to be formatted properly.
+            #print('D: Free space {:,}'.format(free_b_D), 'D: Used Space {:,}'.format(used_b_D), 'D: Capacity {:,}'.format(total_b_D))
+            storage_capacity_amount_D = free_b_d/gb
+            usedspace_amount_D = used_b_d/gb
+            remainingspace_amount_D = total_b_d/gb
+            #try to get bytes to Tera format. - only an experiment.
+            to_TB = remainingspace_amount_D/1000000000000
+            print(" ")
+            print('--------------------------------------')
+            print("Testing area for other drives.")
+            #print(shutil.disk_usage(my_path_D))
+            print('D: Total - {:,} bytes'.format(free_b_d))
+            print('D: Used - {:,} bytes'.format(used_b_d))
+            print('D: Free - {:,} bytes'.format(total_b_d))
+            print('--------------------------------------')
+            #print(f'D: Storage Capacity: {round(storage_capacity_amount_D,2)}')
+            #print(f'D: Used Space: {round(usedspace_amount_D,2)}')
+            #print(f'D: Remaining Space: {round(remainingspace_amount_D,2)}')
+            #print("--------------------------------------")
+            #print('Free {0:.3g} TB'.format(remainingspace_amount_D))
+        else:
+            print(f"Path: {my_path_D} does not exist.")    
     elif args.drive_count:
         found_partition = 0
         partition_list = []
