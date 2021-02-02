@@ -237,7 +237,7 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         if len(partition_list) > 1:
             print("More than one drive?: ", True)
             print("Drives in List: ", len(partition_list))
-            print(f"Found: {partition_list}")
+            print(f"Drives Found: {partition_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")   
 
