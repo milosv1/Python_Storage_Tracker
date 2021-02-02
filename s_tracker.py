@@ -33,13 +33,7 @@ system_name = platform.node()
 #root directory for C:
 my_path = '/'
 
-
-
 free_b,used_b,total_b = shutil.disk_usage(my_path)
-
-
-
-#print('D:', shutil.disk_usage(my_path_D))
 
 #get capacity - free space - used space: C:
 storage_capacity_amount = free_b/gb
