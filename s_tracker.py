@@ -197,11 +197,8 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.other_drives:
-        #this should be for D: TEST
         my_path_D = 'D:\\'
         if os.path.isdir(my_path_D):
-            #print("")
-            #print('TEST for D: ',shutil.disk_usage(my_path_second))
             free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
             #TODO: get capacity - free space - used space: D: 
             #TODO: the outputs below need to be formatted properly.
