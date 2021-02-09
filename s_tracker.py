@@ -20,7 +20,6 @@ from time import gmtime, strftime
 import time
 import cpuinfo
 
-#to gb calc
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
 
@@ -35,7 +34,7 @@ my_path = '/'
 
 free_b,used_b,total_b = shutil.disk_usage(my_path)
 
-#get capacity - free space - used space: C:
+#Outputs for C:
 storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
@@ -45,7 +44,6 @@ minspace_amount = 1024**3*10
 
 #note min_gb_value = 10gb
 min_gb_value = minspace_amount/gb
-#print(round(min_gb_value,2))
 
 user_platform = sys.platform
 
@@ -138,18 +136,14 @@ def graph_space():
    usage_points = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)] 
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
-   #this title appears on the left hand side of our graph, showing exactly what we are trying to graph
    plt.ylabel('Usage Amount (GB)')
-   #the title of our graph
    plt.title(f"Storage Overview for {user_acc}")
-   #this will allow us to interact with our graph, if you hover over a bar in the graph - it will show a value
    mplcursors.cursor()
    
    
 def gen_piGraph():
     usage_labels = f'Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Free Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
-    #we will need this to show our plot - also give window title for pie chart
     fig1, ax1 = plt.subplots(num=f"Storage Pie Chart {user_acc}")
     plt.title(f"Storage Overview for {user_acc}" , loc="left")
     #Explode Remaining Space section of Pie Graph
@@ -160,7 +154,7 @@ def gen_piGraph():
     mplcursors.cursor()
 
 
-def get_args(): #chart_choice - this was a param at one point, but removed since not needed.
+def get_args(): 
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
@@ -232,7 +226,6 @@ def get_args(): #chart_choice - this was a param at one point, but removed since
             print(f"Drives Found: {partition_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")   
-
 
 
 print("")
