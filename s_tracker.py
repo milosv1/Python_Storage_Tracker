@@ -19,6 +19,7 @@ import calendar as c
 from time import gmtime, strftime
 import time
 import cpuinfo
+import locale
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -64,6 +65,10 @@ chart_choice = ''
 #ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
+loc = locale.getlocale()
+#return first item from tuple which is language code.
+get_sys_lang = locale.getdefaultlocale()[0]
+
 
 def greeting():
     print("Welcome to Py Storage Tracker!")
@@ -87,6 +92,7 @@ def get_platform():
     print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel}")
+    print(f"Language: {get_sys_lang}")
     print(f"Processor: {platform_pro} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
@@ -226,7 +232,7 @@ def get_args():
             print(f"Drives Found: {partition_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")   
-
+             
 
 print("")
 greeting()
