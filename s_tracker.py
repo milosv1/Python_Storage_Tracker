@@ -220,16 +220,22 @@ def get_args():
             print(f"Path: {my_path_D} does not exist.")    
     elif args.drive_count:
         found_partition = 0
+        found_fstypes = 0
         partition_list = []
+        fstype_list = []
         partitions = psutil.disk_partitions()
         for partition in partitions:
             found_partition+=1
+            found_fstypes+=1
             partition_list.append(partition.device)
+            fstype_list.append(partition.fstype)
             print("")
         if len(partition_list) > 1:
             print("More than one drive?: ", True)
             print("Drives in List: ", len(partition_list))
-            print(f"Drives Found: {partition_list}")
+            print(f"Drives Found: {partition_list} \n")
+            print(f"File systems in List:", len(fstype_list))
+            print(f"File systems Found: {fstype_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")   
              
