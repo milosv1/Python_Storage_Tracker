@@ -164,10 +164,10 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
-    parser.add_argument("-cs","--chstorage")  #cs = check storage with notification.
+    parser.add_argument("-cs","--chstorage")  
     parser.add_argument("-ac","--all_charts")
-    parser.add_argument("-od","--other_drives") #show storage info of other drives.
-    parser.add_argument("-dc","--drive_count") #counts drives 
+    parser.add_argument("-od","--other_drives") 
+    parser.add_argument("-dc","--drive_count") 
     args = parser.parse_args()
     if args.barchart:
         print(" ")
@@ -197,12 +197,12 @@ def get_args():
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.other_drives:
+        #[TODO]: Need to figure out how to get other drives.
         my_path_D = 'D:\\'
         if os.path.isdir(my_path_D):
             free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
             #TODO: get capacity - free space - used space: D: 
             #TODO: the outputs below need to be formatted properly.
-            #print('D: Free space {:,}'.format(free_b_D), 'D: Used Space {:,}'.format(used_b_D), 'D: Capacity {:,}'.format(total_b_D))
             storage_capacity_amount_D = free_b_d/gb
             usedspace_amount_D = used_b_d/gb
             remainingspace_amount_D = total_b_d/gb
@@ -242,7 +242,6 @@ def get_args():
 
 print("")
 greeting()
-#list_drives()
 get_account() 
 get_platform()
 usageper_core()
