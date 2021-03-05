@@ -168,6 +168,7 @@ def get_args():
     parser.add_argument("-ac","--all_charts")
     parser.add_argument("-od","--other_drives") 
     parser.add_argument("-dc","--drive_count") 
+    parser.add_argument("-td","--test_drives")
     args = parser.parse_args()
     if args.barchart:
         print(" ")
@@ -197,27 +198,38 @@ def get_args():
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.other_drives:
+        partitions = psutil.disk_partitions()
+        for partition in partitions:
+            print("")
+            print(f"Drive: {partition.device}")
+            print('--------------------------------------')
+            free_b_a,used_b_a,total_b_a = shutil.disk_usage(partition.device)
+            print(f"{partition.device}:")
+            print('Capacity - {:,} bytes'.format(free_b_a))
+            print('Used space - {:,} bytes'.format(used_b_a))
+            print('Free space - {:,} bytes'.format(total_b_a))
+            print('--------------------------------------')
         #[TODO]: Need to figure out how to get other drives.
-        my_path_D = 'D:\\'
-        if os.path.isdir(my_path_D):
-            free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
-            #TODO: get capacity - free space - used space: D: 
-            #TODO: the outputs below need to be formatted properly.
-            storage_capacity_amount_D = free_b_d/gb
-            usedspace_amount_D = used_b_d/gb
-            remainingspace_amount_D = total_b_d/gb
-            #try to get bytes to Tera format. - only an experiment.
-            to_TB = remainingspace_amount_D/1000000000000
-            print(" ")
-            print("Another drive found!")
-            print('--------------------------------------')
-            print(f"Drive {my_path_D}")
-            print('D: Total - {:,} bytes'.format(free_b_d))
-            print('D: Used - {:,} bytes'.format(used_b_d))
-            print('D: Free - {:,} bytes'.format(total_b_d))
-            print('--------------------------------------')
-        else:
-            print(f"Path: {my_path_D} does not exist.")    
+        #my_path_D = 'D:\\'
+        #if os.path.isdir(my_path_D):
+        #    free_b_d,used_b_d,total_b_d = shutil.disk_usage(my_path_D)
+        #    #TODO: get capacity - free space - used space: D: 
+        #    #TODO: the outputs below need to be formatted properly.
+        #    storage_capacity_amount_D = free_b_d/gb
+        ##    usedspace_amount_D = used_b_d/gb
+         #   remainingspace_amount_D = total_b_d/gb
+         #   #try to get bytes to Tera format. - only an experiment.
+         #   #to_TB = remainingspace_amount_D/1000000000000
+         #   print(" ")
+         #   print("Another drive found!")
+         #   print('--------------------------------------')
+         #   print(f"Drive {my_path_D}")
+         #   print('D: Total - {:,} bytes'.format(free_b_d))
+         #   print('D: Used - {:,} bytes'.format(used_b_d))
+         #   print('D: Free - {:,} bytes'.format(total_b_d))
+         #   print('--------------------------------------')
+        #else:
+         #   print(f"Path: {my_path_D} does not exist.")    
     elif args.drive_count:
         found_partition = 0
         found_fstypes = 0
@@ -237,8 +249,11 @@ def get_args():
             print(f"File systems in List:", len(fstype_list))
             print(f"File systems Found: {fstype_list}")
         elif len(partition_list) < 2:
-            print("There is only one drive.")   
-             
+            print("There is only one drive.")  
+   
+            
+            
+           
 
 print("")
 greeting()
