@@ -168,7 +168,6 @@ def get_args():
     parser.add_argument("-ac","--all_charts")
     parser.add_argument("-od","--other_drives") 
     parser.add_argument("-dc","--drive_count") 
-    parser.add_argument("-td","--test_drives")
     args = parser.parse_args()
     if args.barchart:
         print(" ")
