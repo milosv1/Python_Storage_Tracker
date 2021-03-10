@@ -203,22 +203,19 @@ def get_args():
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.other_drives:
-        print(" ")
         clear()
         partitions = psutil.disk_partitions()
         for partition in partitions:
-            print("")
-            print(f"Drive: {partition.device}")
+            print(f"Drive {partition.device}")
             print('--------------------------------------')
             free_b_a,used_b_a,total_b_a = shutil.disk_usage(partition.device)
-            print(f"{partition.device}:")
             print('Capacity - {:,} bytes'.format(free_b_a))
             print('Used space - {:,} bytes'.format(used_b_a))
             print('Free space - {:,} bytes'.format(total_b_a))
-            print('--------------------------------------')   
+            print(f'File System  {partition.fstype}')
+            print('--------------------------------------','\n')  
     elif args.drive_count:
         clear()
-        print(" ")
         found_partition = 0
         found_fstypes = 0
         partition_list = []
@@ -229,7 +226,6 @@ def get_args():
             found_fstypes+=1
             partition_list.append(partition.device)
             fstype_list.append(partition.fstype)
-           # print("")
         if len(partition_list) > 1:
             print("More than one drive?: ", True)
             print("Drives in List: ", len(partition_list))
