@@ -159,6 +159,12 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
+def clear():
+ if os.name == "nt":
+    os.system("cls")
+ else:
+     os.system("clear")   
+
 
 def get_args(): 
     parser = argparse.ArgumentParser()
@@ -172,7 +178,7 @@ def get_args():
     if args.barchart:
         print(" ")
         print(f'Launching --{args.barchart}')
-        plt.show(graph_space())
+        plt.show(graph_space()) 
     elif args.piechart:
         print(" ")
         print(f'Launching --{args.piechart}')
@@ -197,6 +203,8 @@ def get_args():
         plt.show(graph_space())
         plt.show(gen_piGraph())
     elif args.other_drives:
+        print(" ")
+        clear()
         partitions = psutil.disk_partitions()
         for partition in partitions:
             print("")
@@ -209,6 +217,8 @@ def get_args():
             print('Free space - {:,} bytes'.format(total_b_a))
             print('--------------------------------------')   
     elif args.drive_count:
+        clear()
+        print(" ")
         found_partition = 0
         found_fstypes = 0
         partition_list = []
@@ -219,7 +229,7 @@ def get_args():
             found_fstypes+=1
             partition_list.append(partition.device)
             fstype_list.append(partition.fstype)
-            print("")
+           # print("")
         if len(partition_list) > 1:
             print("More than one drive?: ", True)
             print("Drives in List: ", len(partition_list))
@@ -231,8 +241,6 @@ def get_args():
    
             
             
-           
-
 greeting()
 get_account() 
 get_platform()
