@@ -233,7 +233,6 @@ def get_args():
             
            
 
-print("")
 greeting()
 get_account() 
 get_platform()
