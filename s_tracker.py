@@ -222,6 +222,7 @@ def get_args():
             print('Used space - {:,} bytes'.format(used_b_a))
             print('Free space - {:,} bytes'.format(total_b_a))
             print(f'File System  {partition.fstype}')
+            print(f'Description {partition.opts}')
             print('--------------------------------------','\n')  
     elif args.drive_count:
         clear()
