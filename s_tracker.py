@@ -20,6 +20,7 @@ from time import gmtime, strftime
 import time
 import cpuinfo
 import locale
+import wmi
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -69,6 +70,11 @@ loc = locale.getlocale()
 #return first item from tuple which is language code.
 get_sys_lang = locale.getdefaultlocale()[0]
 
+#test area to get system ram:
+computer = wmi.WMI()
+os_info = computer.Win32_ComputerSystem()[0]
+sys_ram = os_info.TotalPhysicalMemory
+#float(os_info.TotalVisibleMemorySize) / 1048576
 
 def greeting():
     print("Welcome to Py Storage Tracker!")
@@ -93,6 +99,7 @@ def get_platform():
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel}")
     print(f"Language: {get_sys_lang}")
+    print(f"System RAM: {sys_ram} bytes")
     print(f"Processor: {platform_pro} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
@@ -158,6 +165,7 @@ def gen_piGraph():
     #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
+
 
 def clear():
  if os.name == "nt":
