@@ -75,6 +75,8 @@ computer = wmi.WMI()
 os_info = computer.Win32_ComputerSystem()[0]
 sys_ram = os_info.TotalPhysicalMemory
 
+manufacturer = os_info.Manufacturer
+
 def greeting():
     print("Welcome to Py Storage Tracker!")
     print("This is a project currently being developed by Milos Vuksanovic")
@@ -97,6 +99,7 @@ def get_platform():
     print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel}")
+    print(f"System Manufacturer: {manufacturer}")
     print(f"Language: {get_sys_lang}")
     print(f"System RAM: {sys_ram} bytes")
     print(f"Processor: {platform_pro} \n")
