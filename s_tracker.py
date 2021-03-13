@@ -70,11 +70,10 @@ loc = locale.getlocale()
 #return first item from tuple which is language code.
 get_sys_lang = locale.getdefaultlocale()[0]
 
-#test area to get system ram:
+#get system RAM info
 computer = wmi.WMI()
 os_info = computer.Win32_ComputerSystem()[0]
 sys_ram = os_info.TotalPhysicalMemory
-#float(os_info.TotalVisibleMemorySize) / 1048576
 
 def greeting():
     print("Welcome to Py Storage Tracker!")
@@ -123,7 +122,6 @@ def usageper_core():
     print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
 
 
-#[TEST IDEA] from {:6.2f} -> {:.2f} (?)
 def get_capacity(my_path):    
     print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b)) 
     
