@@ -33,7 +33,7 @@ shows all drives, in this case I will show two examples.
 [Quick note] - I have made some small changes to how output shows (for python s_tracker.py -od od OR python s_tracker.py --other_drives other_drives). I have also added output for the File System & Description of each Drive listed.
 
 [Updated on 14/03/2021] 2GB USB inserted:
-![updated OD with USB2](https://user-images.githubusercontent.com/18017763/111057302-7411e980-84da-11eb-9ee0-a179738da463.png)
+![updated OD with USB2 2](https://user-images.githubusercontent.com/18017763/111057414-7aed2c00-84db-11eb-9902-185aed56a2e1.png)
 
 
 [Updated on 14/03/2021] No USB inserted: 
