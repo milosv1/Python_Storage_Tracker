@@ -141,7 +141,13 @@ def get_TotalSpace(my_path):
 
 
 def graph_space():
-   bargraphwin_title = plt.figure(f"Storage Bar Chart {user_acc}")  
+   #getting date & time:
+   t = date.today()
+   m_d = date.today()
+   day = c.day_name[m_d.weekday()] #return the day of week
+   t_n = strftime("%H:%M:%S",gmtime())
+   time_now = t.strftime(f"{day} %B %d") 
+   bargraphwin_title = plt.figure(f"Storage Bar Chart")  
    #here I have given what needs to be put in the graph, what we are graphing
    usage_types = (f'Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Free Space \n {round(remainingspace_amount,2)} GB')
    #arange our space types 
@@ -151,15 +157,21 @@ def graph_space():
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
    plt.ylabel('Usage Amount (GB)')
-   plt.title(f"Storage Overview for {user_acc}")
+   plt.title(f"Storage Overview for {user_acc} on {time_now} at {t_n}")
    mplcursors.cursor()
    
    
 def gen_piGraph():
+    #getting date & time:
+    t = date.today()
+    m_d = date.today()
+    day = c.day_name[m_d.weekday()] #return the day of week
+    t_n = strftime("%H:%M:%S",gmtime())
+    time_now = t.strftime(f"{day} %B %d") 
     usage_labels = f'Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Free Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
-    fig1, ax1 = plt.subplots(num=f"Storage Pie Chart {user_acc}")
-    plt.title(f"Storage Overview for {user_acc}" , loc="left")
+    fig1, ax1 = plt.subplots(num=f"Storage Pie Chart")
+    plt.title(f"Storage Overview for {user_acc} on {time_now} at {t_n}" , loc="left")
     #Explode Remaining Space section of Pie Graph
     #explode = (0,0,0.2) - removed explode=explode from ax1.pie()
     ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=False, startangle=90)
