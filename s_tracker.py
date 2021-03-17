@@ -82,6 +82,8 @@ def greeting():
     print("This is a project currently being developed by Milos Vuksanovic")
     print("Feel free to download a copy to use, test etc!")
     print("Any feedback given is definately appreciated! - Thank you! :-) \n")
+    print("To start: In your Windows 10 command line type: python s_tracker.py --help")
+    print("- to view a list of commands available. \n")
     
 
 def get_account():   
