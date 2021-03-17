@@ -3,20 +3,20 @@ Py Storage Tracker is a cross-platform command line tool written in Python 3 to 
 
 This program runs on both of my machines, my personal computer which is running on Windows 10 & also my Macbook Pro.
 
-On Windows cmd when python s_tracker.py is first run:
-![first_screen](https://user-images.githubusercontent.com/18017763/110236803-f9057c00-7f8b-11eb-8610-1934ba2db3bb.PNG)
+[Updated on 17/03/2021] On Windows cmd when python s_tracker.py is first run:
+![startup_screen](https://user-images.githubusercontent.com/18017763/111435375-d37b2e00-8754-11eb-97f0-df536c015c34.png)
 
 
 python s_tracker.py --help shows all  commands currently available:
 ![new_help](https://user-images.githubusercontent.com/18017763/110237641-1ee14f80-7f91-11eb-84bf-0b846ba5256e.PNG)
 
 
-python s_tracker.py -b b (b is short for barchart) | python s_tracker.py --barchart barchart is also acceptable:
-![b_chart](https://user-images.githubusercontent.com/18017763/110237016-a0cf7980-7f8d-11eb-9864-caa65cd13f9e.PNG)
+[Updated on 17/03/2021] python s_tracker.py -b b (b is short for barchart) | python s_tracker.py --barchart barchart is also acceptable:
+![new barchart](https://user-images.githubusercontent.com/18017763/111435667-2b199980-8755-11eb-9afb-289f269cca0d.png)
 
 
-python s_tracker.py -p p (p is short for piechart) | python s_tracker.py --piechart piechart is also acceptable:
-![p_chart](https://user-images.githubusercontent.com/18017763/110237035-c2c8fc00-7f8d-11eb-8dcd-a0ebb096ea31.PNG)
+[Updated on 17/03/2021] python s_tracker.py -p p (p is short for piechart) | python s_tracker.py --piechart piechart is also acceptable:
+![new piechart](https://user-images.githubusercontent.com/18017763/111435775-4f757600-8755-11eb-8c20-641ff9cfbadf.png)
 
 
 python s_tracker.py -cs cs (cs is short for check storage) | python s_tracker.py --chstorage chstorage is also acceptable:
