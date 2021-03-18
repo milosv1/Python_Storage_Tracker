@@ -20,7 +20,7 @@ from time import gmtime, strftime
 import time
 import cpuinfo
 import locale
-import wmi
+#import wmi
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -70,12 +70,6 @@ loc = locale.getlocale()
 #return first item from tuple which is language code.
 get_sys_lang = locale.getdefaultlocale()[0]
 
-#get system RAM info
-computer = wmi.WMI()
-os_info = computer.Win32_ComputerSystem()[0]
-sys_ram = os_info.TotalPhysicalMemory
-
-manufacturer = os_info.Manufacturer
 
 def greeting():
     print("Welcome to Py Storage Tracker!")
@@ -101,9 +95,13 @@ def get_platform():
     print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel}")
-    print(f"System Manufacturer: {manufacturer}")
     print(f"Language: {get_sys_lang}")
-    print(f"System RAM: {sys_ram} bytes")
+    if os.name == "nt":
+        g_r = psutil.virtual_memory()[0]
+        print(f"System Total RAM: {g_r} bytes")
+    elif os.name == "posix":
+        g_m = psutil.virtual_memory()[0]
+        print(f"Total Memory: {g_m} bytes")
     print(f"Processor: {platform_pro} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
