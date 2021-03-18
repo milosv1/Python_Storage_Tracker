@@ -98,7 +98,7 @@ def get_platform():
     print(f"Language: {get_sys_lang}")
     if os.name == "nt":
         g_r = psutil.virtual_memory()[0]
-        print(f"System Total RAM: {g_r} bytes")
+        print(f"Total RAM: {g_r} bytes")
     elif os.name == "posix":
         g_m = psutil.virtual_memory()[0]
         print(f"Total Memory: {g_m} bytes")
