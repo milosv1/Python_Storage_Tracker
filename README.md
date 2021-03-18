@@ -3,8 +3,10 @@ Py Storage Tracker is a cross-platform command line tool written in Python 3 to 
 
 This program runs on both of my machines, my personal computer which is running on Windows 10 & also my Macbook Pro.
 
-[Updated on 17/03/2021] On Windows cmd when python s_tracker.py is first run:
-![startup_screen](https://user-images.githubusercontent.com/18017763/111435375-d37b2e00-8754-11eb-97f0-df536c015c34.png)
+[Updated on 18/03/2021] On Windows cmd when python s_tracker.py is first run:
+To output RAM/Memory, it checks to see if you're on Windows or MacOS, If you are on Windows it will output Total RAM
+- If you are on MacOS it will output Total Memory.
+![Updated home 1803](https://user-images.githubusercontent.com/18017763/111592480-f1ac6100-881c-11eb-9a69-130af4736c48.png)
 
 
 python s_tracker.py --help shows all  commands currently available:
