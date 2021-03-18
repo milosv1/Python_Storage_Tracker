@@ -4,8 +4,7 @@ Py Storage Tracker is a cross-platform command line tool written in Python 3 to 
 This program runs on both of my machines, my personal computer which is running on Windows 10 & also my Macbook Pro.
 
 [Updated on 18/03/2021] On Windows cmd when python s_tracker.py is first run:
-To output RAM/Memory, it checks to see if you're on Windows or MacOS, If you are on Windows it will output Total RAM.
-However if you are on MacOS it will output Total Memory.
+To output RAM/Memory, it checks to see if you're on Windows or MacOS, If you are on Windows it will output Total RAM, However if you are on MacOS it will output Total Memory.
 ![Updated home 1803](https://user-images.githubusercontent.com/18017763/111592480-f1ac6100-881c-11eb-9a69-130af4736c48.png)
 
 This is what it looks like when I have run the program from my Macbook Pro from 2014. It will show Total Memory and the fact that I have a low amount of Free space remaining. The minimum amount of space I have set before this shows is 10GB.
