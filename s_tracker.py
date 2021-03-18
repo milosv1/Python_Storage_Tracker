@@ -77,6 +77,7 @@ def greeting():
     print("Feel free to download a copy to use, test etc!")
     print("Any feedback given is definately appreciated! - Thank you! :-) \n")
     print("To start: In your Windows 10 command line type: python s_tracker.py --help")
+    print("To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help")
     print("- to view a list of commands available. \n")
     
 
