@@ -20,7 +20,6 @@ from time import gmtime, strftime
 import time
 import cpuinfo
 import locale
-#import wmi
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -41,7 +40,7 @@ storage_capacity_amount = free_b/gb
 usedspace_amount = used_b/gb
 remainingspace_amount = total_b/gb
 
-#10gb = 10,737,418,240
+#10gb = 10,737,418,240 bytes
 minspace_amount = 1024**3*10  
 
 #note min_gb_value = 10gb
@@ -180,13 +179,15 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
-#[TODO]: create a graph that monitors CPU usage, then outputs average CPU.
 
 def clear():
  if os.name == "nt":
     os.system("cls")
  else:
      os.system("clear")   
+
+
+#[TODO]: Create a graph that monitors CPU usage, then outputs results.
 
 
 def get_args(): 
