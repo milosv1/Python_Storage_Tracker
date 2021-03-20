@@ -180,6 +180,7 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
+#[TODO]: create a graph that monitors CPU usage, then outputs average CPU.
 
 def clear():
  if os.name == "nt":
