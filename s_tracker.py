@@ -97,8 +97,14 @@ def get_platform():
     print(f"Platform Release: {user_platform_rel}")
     print(f"Language: {get_sys_lang}")
     if os.name == "nt":
+        #this code is nt/Windows specific
+        import wmi
+        c_m = wmi.WMI()
+        systeminfo = c_m.Win32_ComputerSystem()[0]
+        Manufacturer = systeminfo.Manufacturer
         g_r = psutil.virtual_memory()[0]
         print(f"Total RAM: {g_r} bytes")
+        print(f"System Manufacturer: {Manufacturer}")
     elif os.name == "posix":
         g_m = psutil.virtual_memory()[0]
         print(f"Total Memory: {g_m} bytes")
