@@ -103,11 +103,11 @@ def get_platform():
         systeminfo = c_m.Win32_ComputerSystem()[0]
         Manufacturer = systeminfo.Manufacturer
         g_r = psutil.virtual_memory()[0]
-        print(f"Total RAM: {g_r} bytes")
+        print("Total RAM: {:,} bytes".format(g_r)) 
         print(f"System Manufacturer: {Manufacturer}")
     elif os.name == "posix":
         g_m = psutil.virtual_memory()[0]
-        print(f"Total Memory: {g_m} bytes")
+        print("Total Memory: {:,} bytes".format(g_m)) 
     print(f"Processor: {platform_pro} \n")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
