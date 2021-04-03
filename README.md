@@ -37,12 +37,12 @@ python s_tracker.py -od od (od is short for other drives) python s_tracker.py --
 shows all drives, in this case I will show two examples. 
 [Quick note] - I have made some small changes to how output shows (for python s_tracker.py -od od OR python s_tracker.py --other_drives other_drives). I have also added output for the File System & Description of each Drive listed.
 
-[Updated on 14/03/2021] 2GB USB inserted:
-![updated OD with USB2 2](https://user-images.githubusercontent.com/18017763/111057414-7aed2c00-84db-11eb-9902-185aed56a2e1.png)
+[Updated on 03/04/2021] 2GB USB inserted:
+![o_d with usb NEW 2](https://user-images.githubusercontent.com/18017763/113476911-321d0780-94ca-11eb-8fef-711ae8c54009.jpg)
 
 
-[Updated on 14/03/2021] No USB inserted: 
-![UPDATED no USB OD](https://user-images.githubusercontent.com/18017763/111057300-7116f900-84da-11eb-9c60-4f13757e6d8a.png)
+[Updated on 03/04/2021] No USB inserted: 
+![o_d no usb NEW](https://user-images.githubusercontent.com/18017763/113476945-67c1f080-94ca-11eb-850f-3a1c21d582e6.png)
 
 
 python s_tracker.py -dc dc (dc is short for drive count) | python s_tracker.py --drive_count drive_count is also acceptable:
