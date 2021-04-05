@@ -193,9 +193,6 @@ def clear():
      os.system("clear")   
 
 
-#[TODO]: Create a graph that monitors CPU usage, then outputs results.
-
-
 def get_args(): 
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
@@ -267,6 +264,7 @@ def get_args():
         elif len(partition_list) < 2:
             print("There is only one drive.")  
     elif args.cpu_usage:
+        #[TODO]: Create a graph that monitors CPU usage, then outputs results.
         print(f"{args.cpu_usage} in progres...")        
    
             
