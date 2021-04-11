@@ -20,6 +20,7 @@ from time import gmtime, strftime
 import time
 import cpuinfo
 import locale
+import threading
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -265,7 +266,9 @@ def get_args():
             print("There is only one drive.")  
     elif args.cpu_usage:
         #[TODO]: Create a graph that monitors CPU usage, then outputs results.
-        print(f"{args.cpu_usage} in progres...")        
+        print(" ")
+        print(f"{args.cpu_usage} implementation in progress.")    
+       
    
             
             
