@@ -20,7 +20,6 @@ from time import gmtime, strftime
 import time
 import cpuinfo
 import locale
-import threading
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -92,7 +91,7 @@ def get_account():
     print(f"Last login: ", time_now, t_n)      
     
 
-def get_platform():
+def get_platform(): 
     print(f"Computer Name: {system_name}")
     print(f"Platform: {user_platform}")
     print(f"Platform Release: {user_platform_rel}")
@@ -114,7 +113,7 @@ def get_platform():
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
     print(f'Total Core Count: {totalcore_count}')
-
+    
 
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
 def get_size(bytes, suffix="B"):
