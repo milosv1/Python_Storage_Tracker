@@ -202,7 +202,6 @@ def get_args():
     parser.add_argument("-ac","--all_charts")
     parser.add_argument("-od","--other_drives") 
     parser.add_argument("-dc","--drive_count") 
-    parser.add_argument("-cpu","--cpu_usage")
     args = parser.parse_args()
     if args.barchart:
         print(" ")
@@ -264,13 +263,8 @@ def get_args():
             print(f"File systems Found: {fstype_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")  
-    elif args.cpu_usage:
-        #[TODO]: Create a graph that monitors CPU usage, then outputs results.
-        print(" ")
-        print(f"{args.cpu_usage} implementation in progress.")    
-       
-   
-            
+      
+              
             
 greeting()
 get_account() 
