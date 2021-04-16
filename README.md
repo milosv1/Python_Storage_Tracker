@@ -57,6 +57,11 @@ With inserted 2GB USB:
 ![dc_usb_inserted](https://user-images.githubusercontent.com/18017763/110237500-8c40b080-7f90-11eb-9980-c3516d30ebbb.PNG)
 
 
+With inserted 1TB Seagate hard drive:
+![dc command ](https://user-images.githubusercontent.com/18017763/114962616-5b686b00-9eae-11eb-837d-87263ef7b11e.png)
+
+
+
 
 
 
