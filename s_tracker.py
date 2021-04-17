@@ -289,7 +289,7 @@ def get_args():
         elif len(partition_list) < 2:
             print("There is only one drive.")  
     elif args.memchart:
-        print(f"Launching {args.memchart}")
+        print(f"Launching --{args.memchart}")
         plt.show(memChart())        
       
               
