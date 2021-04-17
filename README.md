@@ -9,9 +9,11 @@ To output RAM/Memory, it checks to see if you're on Windows or MacOS, If you are
 ![Updated home 1803](https://user-images.githubusercontent.com/18017763/111592480-f1ac6100-881c-11eb-9a69-130af4736c48.png)
 
 This is what it looks like when I have run the program from my Macbook Pro from 2014. It will show Total Memory and the fact that I have a low amount of Free space remaining. The minimum amount of space I have set before this shows is 10GB.
+
 <img width="810" alt="Mac outputs" src="https://user-images.githubusercontent.com/18017763/111594295-feca4f80-881e-11eb-9955-360695c885de.png">
 
 python s_tracker.py --help shows all  commands currently available:
+
 ![new_help](https://user-images.githubusercontent.com/18017763/110237641-1ee14f80-7f91-11eb-84bf-0b846ba5256e.PNG)
 
 [Updated on 17/03/2021] python s_tracker.py -b b (b is short for barchart) | python s_tracker.py --barchart barchart is also acceptable:
