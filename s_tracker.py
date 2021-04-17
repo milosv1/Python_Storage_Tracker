@@ -186,6 +186,31 @@ def gen_piGraph():
     mplcursors.cursor()
 
 
+def memChart():
+    #this function creates a piechart that visualises used memory & remaining memory
+    #dates that will appear in my piechart
+    t = date.today()
+    d_t = date.today()
+    day = c.day_name[d_t.weekday()]
+    t_n = strftime("%H:%M:%S",gmtime())
+    time_now = t.strftime(f"{day} %B %d")
+    #print(f"... on {time_now} at {t_n}")
+    u_m = psutil.virtual_memory().percent #used memory
+    t_m = psutil.virtual_memory().total #total memory
+    a_m = psutil.virtual_memory().available * 100 / t_m
+    #print(" ")
+    #print(f"used memory: {u_m}")
+    #print(f"available memory: {a_m}")
+    #start creating pie chart
+    labels = f'Used memory {round(u_m,2)}%', f'Available memory {round(a_m,2)}%' 
+    mem_sizes = [round(u_m,2), round(a_m,2)]
+    fig1, ax1 = plt.subplots(num=f"Memory Used/Available")
+    plt.title(f"Memory Used/Available for {user_acc} on {time_now} at {t_n}", loc="left")
+    ax1.pie(mem_sizes, labels=labels, autopct='%1.1f%%', shadow=False, startangle=90)
+    ax1.axis('equal')
+    mplcursors.cursor()
+    
+
 def clear():
  if os.name == "nt":
     os.system("cls")
@@ -197,6 +222,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
     parser.add_argument("-p","--piechart")
+    parser.add_argument("-m","--memchart")
     parser.add_argument("-cs","--chstorage")  
     parser.add_argument("-ac","--all_charts")
     parser.add_argument("-od","--other_drives") 
@@ -262,6 +288,9 @@ def get_args():
             print(f"File systems Found: {fstype_list}")
         elif len(partition_list) < 2:
             print("There is only one drive.")  
+    elif args.memchart:
+        print(f"Launching {args.memchart}")
+        plt.show(memChart())        
       
               
             
@@ -275,4 +304,5 @@ get_TotalSpace(my_path)
 get_args()
 graph_space()
 gen_piGraph()
+memChart()
 print("")
