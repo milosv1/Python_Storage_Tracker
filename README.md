@@ -15,10 +15,16 @@ python s_tracker.py --help shows all  commands currently available:
 ![new_help](https://user-images.githubusercontent.com/18017763/110237641-1ee14f80-7f91-11eb-84bf-0b846ba5256e.PNG)
 
 [Updated on 17/03/2021] python s_tracker.py -b b (b is short for barchart) | python s_tracker.py --barchart barchart is also acceptable:
+
 ![new barchart](https://user-images.githubusercontent.com/18017763/111435667-2b199980-8755-11eb-9afb-289f269cca0d.png)
 
 [Updated on 17/03/2021] python s_tracker.py -p p (p is short for piechart) | python s_tracker.py --piechart piechart is also acceptable:
+
 ![new piechart](https://user-images.githubusercontent.com/18017763/111435775-4f757600-8755-11eb-8c20-641ff9cfbadf.png)
+
+[Updated on 17/04/2021] python s_tracker.py -m m (m is short for memchart) | python s_tracker.py --memchart memchart is also acceptable:
+
+![mem used and available](https://user-images.githubusercontent.com/18017763/115108496-27776d80-9fb4-11eb-8fd1-b6cf7b98fe00.png)
 
 python s_tracker.py -cs cs (cs is short for check storage) | python s_tracker.py --chstorage chstorage is also acceptable:
 This command also can send through a notification, it checks to see if your remaining storage is less than 10GB, if it is it will send through a notification.
