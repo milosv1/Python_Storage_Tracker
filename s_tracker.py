@@ -271,6 +271,7 @@ def get_args():
         plt.show(memChart())        
       
 def main():
+    clear()
     greeting()
     get_account() 
     get_platform()
