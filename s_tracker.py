@@ -16,8 +16,7 @@ import pickle
 from datetime import date
 import logging
 import calendar as c
-from time import gmtime, strftime
-import time
+from time import *
 import cpuinfo
 import locale
 
@@ -71,10 +70,7 @@ get_sys_lang = locale.getdefaultlocale()[0]
 
 
 def greeting():
-    print("Welcome to Py Storage Tracker!")
-    print("This is a project currently being developed by Milos Vuksanovic")
-    print("Feel free to download a copy to use, test etc!")
-    print("Any feedback given is definately appreciated! - Thank you! :-) \n")
+    print("Welcome to Py Storage Tracker! \n")
     print("To start: In your Windows 10 command line (within project directory) type: python s_tracker.py --help")
     print("To start on macOS: In your Mac Terminal (within project directory) type: python3 s_tracker.py --help")
     print("- to view a list of commands available. \n")
@@ -292,17 +288,20 @@ def get_args():
         print(f"Launching --{args.memchart}")
         plt.show(memChart())        
       
-              
-            
-greeting()
-get_account() 
-get_platform()
-usageper_core()
-get_capacity(my_path)
-get_usedSpace(my_path)
-get_TotalSpace(my_path)
-get_args()
-graph_space()
-gen_piGraph()
-memChart()
-print("")
+def main():
+    greeting()
+    get_account() 
+    get_platform()
+    usageper_core()
+    get_capacity(my_path)
+    get_usedSpace(my_path)
+    get_TotalSpace(my_path)
+    get_args()
+    graph_space()
+    gen_piGraph()
+    memChart()
+    print("")
+
+
+if __name__ == "__main__":                    
+   main()
