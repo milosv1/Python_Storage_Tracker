@@ -66,12 +66,9 @@ get_sys_lang = locale.getdefaultlocale()[0]
 
 
 def greeting():
-    print("Welcome to Py Storage Tracker! \n")
-    print("To start: In your Windows 10 command line (within project directory) type: python s_tracker.py --help")
-    print("To start on macOS: In your Mac Terminal (within project directory) type: python3 s_tracker.py --help")
-    print("- to view a list of commands available. \n")
+    print("Welcome to Python Storage Tracker\n\nThis is a project currently being developed by Milos Vuksanovic, essentially its purpose is used to be able to learn and enjoy the process!\nTo start on Windows: in your Windows Command Prompt type: python s_tracker.py --help\nTo start on macOS: In your Terminal type: python3 s_tracker.py --help\n- to view a list of commands available.\n")
     
-
+    
 def get_account():   
     t = date.today()
     m_d = date.today()
