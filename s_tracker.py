@@ -1,20 +1,17 @@
-import os 
+import os
 import sys 
-import datetime 
+import datetime
+from datetime import date
 import shutil 
 import matplotlib.pyplot as plt; plt.rcdefaults() 
 import numpy as np 
 import mplcursors 
-from os import path
 import platform 
 import psutil
 import argparse
 from notifypy import Notify
-from pathlib import Path
-import warnings
-import pickle 
-from datetime import date
-import logging
+from pathlib import *
+import warnings 
 import calendar as c
 from time import *
 import cpuinfo
