@@ -61,11 +61,10 @@ platform_pro = cpuinfo.get_cpu_info()['brand_raw']
 
 chart_choice = ''
 
-#ignore warnings - This should fix the MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
 loc = locale.getlocale()
-#return first item from tuple which is language code.
+
 get_sys_lang = locale.getdefaultlocale()[0]
 
 
@@ -77,7 +76,6 @@ def greeting():
     
 
 def get_account():   
-    #time_acc = datetime.datetime.now()
     t = date.today()
     m_d = date.today()
     day = c.day_name[m_d.weekday()] #return the day of week
@@ -143,18 +141,14 @@ def get_TotalSpace(my_path):
 
 
 def graph_space():
-   #getting date & time:
    t = date.today()
    m_d = date.today()
-   day = c.day_name[m_d.weekday()] #return the day of week
+   day = c.day_name[m_d.weekday()] 
    t_n = strftime("%H:%M:%S",gmtime())
    time_now = t.strftime(f"{day} %B %d") 
    bargraphwin_title = plt.figure(f"Storage Bar Chart")  
-   #here I have given what needs to be put in the graph, what we are graphing
-   usage_types = (f'Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Free Space \n {round(remainingspace_amount,2)} GB')
-   #arange our space types 
-   y_pos = np.arange(len(usage_types))
-   #a list of our usage_points, in the list individually round them off to the 2nd decimal  
+   usage_types = (f'Capacity \n {round(storage_capacity_amount,2)} GB', f'Used Space \n {round(usedspace_amount,2)} GB', f'Free Space \n {round(remainingspace_amount,2)} GB') 
+   y_pos = np.arange(len(usage_types)) 
    usage_points = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)] 
    plt.bar(y_pos, usage_points, align='center', alpha=0.5)
    plt.xticks(y_pos, usage_types)
@@ -164,40 +158,31 @@ def graph_space():
    
    
 def gen_piGraph():
-    #getting date & time:
     t = date.today()
     m_d = date.today()
-    day = c.day_name[m_d.weekday()] #return the day of week
+    day = c.day_name[m_d.weekday()] 
     t_n = strftime("%H:%M:%S",gmtime())
     time_now = t.strftime(f"{day} %B %d") 
     usage_labels = f'Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Free Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     fig1, ax1 = plt.subplots(num=f"Storage Pie Chart")
     plt.title(f"Storage Overview for {user_acc} on {time_now} at {t_n}" , loc="left")
-    #Explode Remaining Space section of Pie Graph
     #explode = (0,0,0.2) - removed explode=explode from ax1.pie()
     ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=False, startangle=90)
-    #ensure that our graph is drawn as circle
     ax1.axis('equal')  
     mplcursors.cursor()
 
 
 def memChart():
     #this function creates a piechart that visualises used memory & remaining memory
-    #dates that will appear in my piechart
     t = date.today()
     d_t = date.today()
     day = c.day_name[d_t.weekday()]
     t_n = strftime("%H:%M:%S",gmtime())
     time_now = t.strftime(f"{day} %B %d")
-    #print(f"... on {time_now} at {t_n}")
     u_m = psutil.virtual_memory().percent #used memory
     t_m = psutil.virtual_memory().total #total memory
     a_m = psutil.virtual_memory().available * 100 / t_m
-    #print(" ")
-    #print(f"used memory: {u_m}")
-    #print(f"available memory: {a_m}")
-    #start creating pie chart
     labels = f'Used memory {round(u_m,2)}%', f'Available memory {round(a_m,2)}%' 
     mem_sizes = [round(u_m,2), round(a_m,2)]
     fig1, ax1 = plt.subplots(num=f"Memory Used/Available")
