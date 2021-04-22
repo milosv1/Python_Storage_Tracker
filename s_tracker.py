@@ -66,9 +66,18 @@ get_sys_lang = locale.getdefaultlocale()[0]
 
 
 def greeting():
-    print("Welcome to Python Storage Tracker\n\nThis is a project currently being developed by Milos Vuksanovic, essentially its purpose is used to be able to learn and enjoy the process!\nTo start on Windows: in your Windows Command Prompt type: python s_tracker.py --help\nTo start on macOS: In your Terminal type: python3 s_tracker.py --help\n- to view a list of commands available.\n")
-    
-    
+    greetings = """
+Welcome to Py Storage Tracker!
+This is a project currently being developed by Milos Vuksanovic
+Feel free to download a copy to use, test etc!
+Any feedback given is definately appreciated! - Thank you :-) \n\n
+To start: In your windows 10 command line type: python s_tracker.py --help
+To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
+- to view a list of commands available.
+    """
+    print(greetings)
+
+
 def get_account():   
     t = date.today()
     m_d = date.today()
@@ -266,6 +275,7 @@ def get_args():
     elif args.memchart:
         print(f"Launching --{args.memchart}")
         plt.show(memChart())        
+      
       
 def main():
     clear()
