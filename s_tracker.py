@@ -70,7 +70,7 @@ def greeting():
 Welcome to Py Storage Tracker!
 This is a project currently being developed by Milos Vuksanovic
 Feel free to download a copy to use, test etc!
-Any feedback given is definately appreciated! - Thank you :-) \n\n
+Any feedback given is definately appreciated! - Thank you :-) \n
 To start: In your windows 10 command line type: python s_tracker.py --help
 To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
 - to view a list of commands available.
