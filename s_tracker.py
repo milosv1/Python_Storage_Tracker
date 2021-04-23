@@ -103,6 +103,7 @@ def get_platform():
         print("Total RAM: {:,} bytes".format(g_r)) 
         print(f"System Manufacturer: {Manufacturer}")
     elif os.name == "posix":
+        #this code is POSIX specific
         g_m = psutil.virtual_memory()[0]
         print("Total Memory: {:,} bytes".format(g_m)) 
     print(f"Processor: {platform_pro} \n")
@@ -144,6 +145,7 @@ def get_TotalSpace(my_path):
 
 
 def graph_space():
+   #Create a barchart to visualise storage
    t = date.today()
    m_d = date.today()
    day = c.day_name[m_d.weekday()] 
@@ -161,6 +163,7 @@ def graph_space():
    
    
 def gen_piGraph():
+    #Create a pie chart to visualise storage
     t = date.today()
     m_d = date.today()
     day = c.day_name[m_d.weekday()] 
@@ -177,7 +180,7 @@ def gen_piGraph():
 
 
 def mem_Chart():
-    #this function creates a piechart that visualises used memory & remaining memory
+    #Creates a piechart that visualises used memory & remaining memory
     t = date.today()
     d_t = date.today()
     day = c.day_name[d_t.weekday()]
