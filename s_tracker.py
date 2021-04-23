@@ -176,7 +176,7 @@ def gen_piGraph():
     mplcursors.cursor()
 
 
-def memChart():
+def mem_Chart():
     #this function creates a piechart that visualises used memory & remaining memory
     t = date.today()
     d_t = date.today()
@@ -274,7 +274,7 @@ def get_args():
             print("There is only one drive.")  
     elif args.memchart:
         print(f"Launching --{args.memchart}")
-        plt.show(memChart())        
+        plt.show(mem_Chart())        
       
       
 def main():
@@ -289,7 +289,7 @@ def main():
     get_args()
     graph_space()
     gen_piGraph()
-    memChart()
+    mem_Chart()
     print("")
 
 
