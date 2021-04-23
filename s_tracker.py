@@ -99,9 +99,11 @@ def get_platform():
         c_m = wmi.WMI()
         systeminfo = c_m.Win32_ComputerSystem()[0]
         Manufacturer = systeminfo.Manufacturer
+        graphics_card = c_m.Win32_VideoController()[0]
         g_r = psutil.virtual_memory()[0]
         print("Total RAM: {:,} bytes".format(g_r)) 
         print(f"System Manufacturer: {Manufacturer}")
+        print('Graphics Card: {0}'.format(graphics_card.Name))
     elif os.name == "posix":
         #this code is POSIX specific
         g_m = psutil.virtual_memory()[0]
