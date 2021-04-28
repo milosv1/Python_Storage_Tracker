@@ -244,6 +244,7 @@ def get_args():
         print(f"Launching --{args.all_charts}") 
         plt.show(graph_space())
         plt.show(gen_piGraph())
+        plt.show(mem_Chart())
     elif args.other_drives:
         clear()
         partitions = psutil.disk_partitions()
