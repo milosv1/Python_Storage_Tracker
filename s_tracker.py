@@ -16,6 +16,9 @@ import calendar as c
 from time import *
 import cpuinfo
 import locale
+#[TODO] I want to add percentages to my storage outputs
+#our goal below:
+#as an example - we have = output | bytes | percent (%)
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
