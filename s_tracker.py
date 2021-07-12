@@ -105,7 +105,7 @@ def get_platform():
         print(f"System Manufacturer: {Manufacturer}")
         print('Graphics Card: {0}'.format(graphics_card.Name))
     elif os.name == "posix":
-        #this code is POSIX specific
+        #this code is POSIX specific - When you run on Mac, You'll get the following output
         g_m = psutil.virtual_memory()[0]
         print("Total Memory: {:,} bytes".format(g_m)) 
     print(f"Processor: {platform_pro} \n")
