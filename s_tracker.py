@@ -20,6 +20,7 @@ import locale
 #[TODO] I want to add percentages to my storage outputs.
 #My goal below:
 #As an example - we have = output | bytes | percent (%)
+#should probably add return statements (?)
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -81,7 +82,7 @@ To start: In your windows 10 command line type: python s_tracker.py --help
 To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
 - to view a list of commands available.
     """
-    print(greetings)
+    return greetings
 
 #-------------------------------------------------
 
