@@ -149,6 +149,7 @@ def usageper_core():
 
 def get_capacity(my_path):    
     print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b)) 
+    
 
 
 #-------------------------------------------------
@@ -161,7 +162,7 @@ def get_usedSpace(my_path):
 
 def get_TotalSpace(my_path):
     if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'
-        print('*Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.','\n')
+        print('[Warning!]Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.','\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b))    
 
