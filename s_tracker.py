@@ -21,6 +21,7 @@ import locale
 #[TODO] I want to add percentages to my storage outputs.
 #My goal below:
 #As an example - we have = output | bytes | percent (%)
+#should probably add return statements (?)
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
@@ -70,6 +71,8 @@ loc = locale.getlocale()
 get_sys_lang = locale.getdefaultlocale()[0]
 
 
+#-------------------------------------------------
+
 def greeting():
     greetings = """
 Welcome to the Python Storage Tracker ~
@@ -79,8 +82,9 @@ This is a side project currently being developed by Milos Vuksanovic.
 * To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
 - to view a list of commands available.
     """
-    print(greetings)
+    return greetings
 
+#-------------------------------------------------
 
 def get_account():   
     t = date.today()
@@ -90,7 +94,9 @@ def get_account():
     time_now = t.strftime(f"{day} %B %d")
     print(f"User: {user_acc}")
     print(f"Last login: ", time_now, t_n)      
-    
+
+
+#-------------------------------------------------
 
 def get_platform(): 
     print(f"Computer Name: {system_name}")
@@ -119,6 +125,8 @@ def get_platform():
     print(f'Total Core Count: {totalcore_count}')
     
 
+#-------------------------------------------------
+
 #this function  converts larger numbers into - Kilobytes - MegaBytes - Gigabytes - TeraBytes - PetaBytes
 def get_size(bytes, suffix="B"):
     fact = 1024
@@ -128,6 +136,8 @@ def get_size(bytes, suffix="B"):
         bytes /= fact
 
 
+#-------------------------------------------------
+
 #Get % of usage per core & total CPU usage %
 def usageper_core():
     for i, percentage in enumerate(per_cpu):
@@ -135,20 +145,28 @@ def usageper_core():
     print(f'Total CPU Usage: {psutil.cpu_percent()}% \n')   
 
 
+#-------------------------------------------------
+
 def get_capacity(my_path):    
     print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b)) 
     
-  
+
+
+#-------------------------------------------------
+
 def get_usedSpace(my_path):
       print('Used space: {:6.2f} GB'.format(used_b/gb), "| {:,} bytes".format(used_b))
 
 
+#-------------------------------------------------
+
 def get_TotalSpace(my_path):
     if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'
-        print('*Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.','\n')
+        print('[Warning!]Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.','\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b))    
 
+#-------------------------------------------------
 
 def graph_space():
    #Create a barchart to visualise storage
@@ -167,6 +185,7 @@ def graph_space():
    plt.title(f"Storage Overview for {user_acc} on {time_now} at {t_n}")
    mplcursors.cursor()
    
+#-------------------------------------------------
    
 def gen_piGraph():
     #Create a pie chart to visualise storage
@@ -184,6 +203,7 @@ def gen_piGraph():
     ax1.axis('equal')  
     mplcursors.cursor()
 
+#-------------------------------------------------
 
 def mem_Chart():
     #Creates a piechart that visualises used memory & remaining memory
@@ -203,6 +223,7 @@ def mem_Chart():
     ax1.axis('equal')
     mplcursors.cursor()
     
+#-------------------------------------------------
 
 def clear():
  if os.name == "nt":
@@ -210,6 +231,7 @@ def clear():
  else:
      os.system("clear")   
 
+#-------------------------------------------------
 
 def get_args(): 
     parser = argparse.ArgumentParser()
@@ -286,7 +308,8 @@ def get_args():
         print(f"Launching --{args.memchart}")
         plt.show(mem_Chart())        
       
-      
+ #-------------------------------------------------
+     
 def main():
     clear()
     greeting()
@@ -302,6 +325,7 @@ def main():
     mem_Chart()
     print("")
 
+ #-------------------------------------------------
 
 if __name__ == "__main__":                    
    main()
