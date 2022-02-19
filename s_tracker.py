@@ -66,6 +66,7 @@ loc = locale.getlocale()
 
 get_sys_lang = locale.getdefaultlocale()[0]
 
+last_reboot = psutil.boot_time()
 
 #-------------------------------------------------
 
@@ -89,7 +90,8 @@ def get_account():
     t_n = strftime("%H:%M:%S",gmtime())
     time_now = t.strftime(f"{day} %B %d")
     print(f"User: {user_acc}")
-    print(f"Last login: ", time_now, t_n)      
+    print(f"Last login: ", time_now, t_n) 
+    print(f"Last reboot: {datetime.datetime.fromtimestamp(last_reboot)}")     
 
 
 #-------------------------------------------------
@@ -235,7 +237,6 @@ def get_args():
     parser.add_argument("-p","--piechart")
     parser.add_argument("-m","--memchart")
     parser.add_argument("-cs","--chstorage")  
-    parser.add_argument("-ac","--all_charts")
     parser.add_argument("-od","--other_drives") 
     parser.add_argument("-dc","--drive_count") 
     args = parser.parse_args()
@@ -261,12 +262,6 @@ def get_args():
             notification_notsafe.title = "Free space levels Low"
             notification_notsafe.message = f"[Warning]: Free space levels are low, You have {round(remainingspace_amount,2)} GB remaining."
             notification_notsafe.send()
-    elif args.all_charts:
-        print(" ")
-        print(f"Launching --{args.all_charts}") 
-        plt.show(graph_space())
-        plt.show(gen_piGraph())
-        plt.show(mem_Chart())
     elif args.other_drives:
         clear()
         partitions = psutil.disk_partitions()
