@@ -9,7 +9,8 @@ import mplcursors
 import platform 
 import psutil
 import argparse
-from notifypy import Notify
+from notifypy import *
+#from notifypy import Notify
 from pathlib import *
 import warnings 
 import calendar as c
@@ -71,12 +72,11 @@ get_sys_lang = locale.getdefaultlocale()[0]
 
 def greeting():
     greetings = """
-Welcome to Py Storage Tracker!
-This is a project currently being developed by Milos Vuksanovic
-Feel free to download a copy to use, test etc!
-Any feedback given is definately appreciated! - Thank you :-) \n
-To start: In your windows 10 command line type: python s_tracker.py --help
-To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
+Welcome to the Python Storage Tracker ~
+This is a side project currently being developed by Milos Vuksanovic.
+
+* To start: In your windows 10 command line type: python s_tracker.py --help
+* To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
 - to view a list of commands available.
     """
     print(greetings)
