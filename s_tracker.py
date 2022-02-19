@@ -18,10 +18,6 @@ from time import *
 import cpuinfo
 import locale
 
-#[TODO] I want to add percentages to my storage outputs.
-#My goal below:
-#As an example - we have = output | bytes | percent (%)
-#should probably add return statements (?)
 
 gb = 10 ** 9
 #print("GB VALUE:",gb) 
