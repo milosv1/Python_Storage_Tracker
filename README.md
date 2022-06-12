@@ -9,7 +9,7 @@ Recently added output for graphics card, however this will only appear if ran on
 
 ![Added graphics card output ](https://user-images.githubusercontent.com/18017763/116358725-4cd06b00-a841-11eb-9269-0e1edd30472a.png)
 
-Example output output of what is shown in the instance you have less than 10GB available.
+Example output of what is shown in the instance you have less than 10GB available.
 
 <img width="810" alt="Mac outputs" src="https://user-images.githubusercontent.com/18017763/111594295-feca4f80-881e-11eb-9955-360695c885de.png">
 
@@ -36,9 +36,10 @@ In the scenario that you have less than 10GB available in your machine, a notifi
 
 
 
-python s_tracker.py -od od (od is short for other drives) python s_tracker.py --other_drives other_drives is also acceptable:
-shows all drives, in this case I will show two examples. 
-[Note] - I have made some small changes to how output shows (for python s_tracker.py -od od || python s_tracker.py --other_drives other_drives). I have also added output for the File System & Description of each Drive listed.
+python s_tracker.py -od od || python s_tracker.py --other_drives other_drives is also acceptable:
+Returns all drives. 
+
+[Note] - This command also now returns the File System & Description of each Drive listed.
 
 
 [Updated on 03/04/2021] 2GB USB inserted example:
