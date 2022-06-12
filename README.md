@@ -1,6 +1,5 @@
 # Py Storage Tracker
-Py Storage Tracker is a cross-platform command line tool using Python to track storage and other system related information. The command line 
-tool also features the ability to be able to display storage data visually through either a Bar Chart or Pie Chart.
+Py Storage Tracker is a cross-platform command line tool built using Python to track system storage and other system related information. 
 
 [Updated on 18/03/2021] On Windows cmd when python s_tracker.py is first run:
 To output RAM/Memory, it checks to see if you're on Windows or MacOS, If you are on Windows it will output Total RAM, However if you are on MacOS it will output Total Memory.
