@@ -160,7 +160,7 @@ def get_usedSpace(my_path):
 
 def get_TotalSpace(my_path):
     if total_b/gb < min_gb_value: #if less than min_gb_value or 10GB, print with Warning message beside Remaining amount & indicator '*'
-        print('[Warning!]Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, you are running low on Free storage.','\n')
+        print('[Warning!]Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, Your storage is almost full.','\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b))    
 
@@ -251,16 +251,16 @@ def get_args():
     elif args.chstorage:
         print(" ")
         if remainingspace_amount > min_gb_value:
-            print(f"You have {round(remainingspace_amount,2)} GB of Free space remaining which is greater than the minimum amount of {round(min_gb_value,2)} GB.")    
+            print(f"You have {round(remainingspace_amount,2)} GB of Free space remaining.")    
             notification = Notify()
-            notification.title = "Free space levels Safe"
+            notification.title = "Safe storage levels"
             notification.message = f"You have {round(remainingspace_amount,2)} GB of Free space available."
             notification.send()    
         elif remainingspace_amount < min_gb_value:
-            print(f"You have {round(remainingspace_amount,2)} GB of Free space remaining, Which is less than the minimum amount of {round(min_gb_value,2)} GB.")
+            print(f"You have {round(remainingspace_amount,2)} GB of Free space remaining.")
             notification_notsafe = Notify()
-            notification_notsafe.title = "Free space levels Low"
-            notification_notsafe.message = f"[Warning]: Free space levels are low, You have {round(remainingspace_amount,2)} GB remaining."
+            notification_notsafe.title = "Low storage"
+            notification_notsafe.message = f"[Warning] - Your storage is almost full."
             notification_notsafe.send()
     elif args.other_drives:
         clear()
