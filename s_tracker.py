@@ -17,6 +17,7 @@ import calendar as c
 from time import *
 import cpuinfo
 import locale
+import urllib.request
 
 
 gb = 10 ** 9
@@ -73,7 +74,7 @@ last_reboot = psutil.boot_time()
 def greeting():
     greetings = """
 Welcome to the Python Storage Tracker ~
-This is a side project currently being developed by Milos Vuksanovic.
+A side project being actively developed by Milos Vuksanovic.
 
 * To start: In your windows 10 command line type: python s_tracker.py --help
 * To start on macOS: In your Mac Terminal type: python3 s_tracker.py --help
@@ -117,6 +118,7 @@ def get_platform():
         g_m = psutil.virtual_memory()[0]
         print("Total Memory: {:,} bytes".format(g_m)) 
     print(f"Processor: {platform_pro} \n")
+    print(f"Active Internet Connection: {test_internet_connection()}")
     print(f'Total Bytes Sent: {get_size(bytes_sent)}')
     print(f'Total Bytes Recieved: {get_size(bytes_recv)} \n')
     print(f'Physical Core Count: {physicalcore_count}')
@@ -149,7 +151,6 @@ def get_capacity(my_path):
     print('Capacity: {:6.2f} GB'.format(free_b/gb), "| {:,} bytes".format(free_b)) 
     
 
-
 #-------------------------------------------------
 
 def get_usedSpace(my_path):
@@ -163,6 +164,7 @@ def get_TotalSpace(my_path):
         print('[Warning!]Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b), '\n' ,f'\n[Warning] {user_acc}, Your storage is almost full.','\n')
     elif total_b/gb > min_gb_value: #if greater than min_gb_value or 10GB, print it normally without warning message.
         print('Free space: {:6.2f} GB'.format(total_b/gb), "| {:,} bytes".format(total_b))    
+
 
 #-------------------------------------------------
 
@@ -231,6 +233,15 @@ def clear():
 
 #-------------------------------------------------
 
+def test_internet_connection():
+    try:
+        urllib.request.urlopen('https://www.google.com', timeout=5)
+        return True
+    except:
+        return False
+ 
+#-------------------------------------------------
+
 def get_args(): 
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--barchart")
@@ -297,8 +308,8 @@ def get_args():
             print("There is only one drive.")  
     elif args.memchart:
         print(f"Launching --{args.memchart}")
-        plt.show(mem_Chart())        
-      
+        plt.show(mem_Chart())       
+
  #-------------------------------------------------
      
 def main():
