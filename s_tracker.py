@@ -192,12 +192,11 @@ def gen_piGraph():
     t = date.today()
     m_d = date.today()
     day = c.day_name[m_d.weekday()] 
-    t_n = strftime("%H:%M:%S",gmtime())
     time_now = t.strftime(f"{day} %B %d") 
     usage_labels = f'Capacity {round(storage_capacity_amount,2)} GB', f'Used Space {round(usedspace_amount,2)} GB', f'Free Space {round(remainingspace_amount,2)} GB'
     usage_sizes = [round(storage_capacity_amount,2), round(usedspace_amount,2), round(remainingspace_amount,2)]
     fig1, ax1 = plt.subplots(num=f"Storage Pie Chart")
-    plt.title(f"Storage Overview for {user_acc} on {time_now} at {t_n}" , loc="left")
+    plt.title(f"Storage Overview for {user_acc} on {time_now}" , loc="left")
     #explode = (0,0,0.2) - removed explode=explode from ax1.pie()
     ax1.pie(usage_sizes, labels=usage_labels, autopct='%1.1f%%',shadow=False, startangle=90)
     ax1.axis('equal')  
@@ -234,6 +233,7 @@ def clear():
 #-------------------------------------------------
 
 def test_internet_connection():
+    # This doesn't work on Mac just yet, as it will return false whilst internet is active.
     try:
         urllib.request.urlopen('https://www.google.com', timeout=5)
         return True
